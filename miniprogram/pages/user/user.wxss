@@ -1,1 +1,145 @@
 /* pages/user/user.wxss */
+.user-view {
+  padding: 120rpx 30rpx 0;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-icon {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 999px;
+}
+
+.user-icon image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.user-name {
+  margin-left: 30rpx;
+  font-size: 36rpx;
+}
+
+.user-sign {
+  width: 140rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background-color: #aaa;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 30rpx;
+  margin-left: auto;
+}
+
+.gift {
+  margin: 0 15rpx;
+}
+
+.user-vip {
+  display: flex;
+  margin: 30rpx 0;
+  padding: 30rpx;
+  background-color: #face6a;
+  border-radius: 20rpx;
+  color: #fff;
+  justify-content: space-between;
+  font-size: 24rpx;
+}
+
+.vip-name {
+  font-size: 50rpx;
+  margin-bottom: 30rpx;
+}
+
+progress {
+  margin: 20rpx 0;
+}
+
+
+.vip-right {
+  margin-right: -20rpx;
+}
+
+.vip-icon {
+  width: 180rpx;
+  height: 200rpx;
+  margin-top: -30rpx;
+  background-size: cover;
+  background-image: url(https://636c-cloud1-2g9ol1w699eb1c84-1314595113.tcb.qcloud.la/user-images/icon_level_figure_3.png?sign=46b33fbfe6317c88d9cb2003fe3ddfdb&t=1667651979);
+}
+
+.vip-look {
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+}
+
+.user-info2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-coin {
+  display: flex;
+  width: 290rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  align-items: center;
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.coin-text {
+  font-weight: 400;
+  font-size: 24rpx;
+  color: #666;
+}
+
+.coin-right {
+  width: 60rpx;
+  height: 60rpx;
+  margin-left: auto;
+}
+
+.coin-right image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.user-list {
+  padding: 0 20rpx;
+  background-color: #fff;
+  margin-top: 30rpx;
+  border-radius: 20rpx;
+}
+
+.user-item {
+  display: flex;
+  align-items: center;
+  height: 100rpx;
+  font-size: 28rpx;
+}
+
+.item-icon {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
+}
+
+.item-icon image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.item-arrow {
+  margin-left: auto;
+  color: #999;
+}
