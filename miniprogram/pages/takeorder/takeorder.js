@@ -21,6 +21,7 @@ Page({
     staffList: [],
     coupons: [],
     statusBarHeight: app.globalData.statusBarHeight,
+    pricecount:0
   },
 
   /**

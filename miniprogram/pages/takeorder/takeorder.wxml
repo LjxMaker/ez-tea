@@ -3,7 +3,10 @@
   <view class="header">
     <!-- 自定义的导航栏 -->
     <view class="custom flex_center">
-      <image class='nav_logo' src='{{staticImg}}index/nav_logo.png'></image>
+      <view class="icon">
+        <van-icon name="arrow-left" />
+
+        </view>
       <view class='navInput'>
         <view class="icon">
           <van-icon name="search" />
@@ -69,7 +72,7 @@
     </scroll-view>
   </view> -->
 
-  <van-submit-bar price="{{ 3050 }}" button-text="提交订单" bind:submit="onClickButton" tip="{{ true }}">
+  <van-submit-bar price="{{ pricecount }}" button-text="提交订单" bind:submit="onClickButton" tip="{{ true }}">
     <image class="shop-bag" src="../../images/icon_cart.png"></image>
   </van-submit-bar>
   <van-popup show="{{ show }}" bind:close="onClose">
