@@ -5,7 +5,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    list: [{
+        title: "兑换码",
+        icon: "cloud://cloud1-2g9ol1w699eb1c84.636c-cloud1-2g9ol1w699eb1c84-1314595113/user-images/icon_setting_code.png",
+      },
+      {
+        title: "隐私政策",
+        icon: "cloud://cloud1-2g9ol1w699eb1c84.636c-cloud1-2g9ol1w699eb1c84-1314595113/user-images/yinsi.png",
+      },
+      {
+        title: "用户服务协议",
+        icon: "cloud://cloud1-2g9ol1w699eb1c84.636c-cloud1-2g9ol1w699eb1c84-1314595113/user-images/xieyi.png",
+      },
+      {
+        title: "经营信息公示",
+        icon: "cloud://cloud1-2g9ol1w699eb1c84.636c-cloud1-2g9ol1w699eb1c84-1314595113/user-images/xinxi.png",
+      },
+    ]
   },
 
   /**
