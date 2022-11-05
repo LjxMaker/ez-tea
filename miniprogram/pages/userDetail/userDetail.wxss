@@ -26,15 +26,22 @@
   display: block;
 }
 
-
-
 .item {
   display: flex;
   align-items: center;
   height: 100rpx;
 }
 
+.item-text1 {
+  width: 120rpx;
+  color: #999;
+}
+
 .item-text3 {
   margin-left: auto;
   color: red;
+}
+
+radio {
+  margin-right: 40rpx;
 }
