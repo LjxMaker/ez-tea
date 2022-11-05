@@ -8,7 +8,7 @@
 
     <view class="user-name">134******68</view>
     <view class="user-sign">
-      <van-icon class="gift" name="point-gift" />签到
+      <van-icon class="gift" name="point-gift" size="34rpx" />签到
     </view>
   </view>
 

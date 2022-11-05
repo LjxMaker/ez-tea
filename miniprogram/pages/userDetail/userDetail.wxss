@@ -1,11 +1,13 @@
 /* pages/userDetail.wxss */
 .user-detail-view {
-  padding: 60rpx 30rpx 0;
+  padding: 70rpx 30rpx 0;
   background-color: #fff;
+  font-size: 32rpx;
 }
 
 .nav {
   display: flex;
+  font-size: 36rpx;
 }
 
 .nav-text {
