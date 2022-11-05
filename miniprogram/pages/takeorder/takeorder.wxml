@@ -3,7 +3,12 @@
   <view class="header">
     <!-- 自定义的导航栏 -->
     <view class="custom flex_center">
-      <image class='nav_logo' src='{{staticImg}}index/nav_logo.png'></image>
+      <view class="back-btn">
+        <navigator url="../index/index">
+          <van-icon name="arrow-left" />
+        </navigator>
+      </view>
+
       <view class='navInput'>
         <view class="icon">
           <van-icon name="search" />

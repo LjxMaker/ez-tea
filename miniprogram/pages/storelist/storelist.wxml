@@ -1,1 +1,7 @@
 <!--pages/storelist/storelist.wxml-->
+<view class="store-list-page" style="padding-top:{{statusBarHeight}}px">
+  <view class="map-view">
+    <map id="map" style="width: 100%; height: 450rpx;">
+    </map>
+  </view>
+</view>

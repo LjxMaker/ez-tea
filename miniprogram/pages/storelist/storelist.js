@@ -1,12 +1,19 @@
 // pages/storelist/storelist.js
+var app = getApp();
+
+var QQMapWX = require('../../libs/qqmap-wx-jssdk.js');
+var qqmapsdk;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    statusBarHeight: app.globalData.statusBarHeight
 
   },
+
+
 
   /**
    * 生命周期函数--监听页面加载

@@ -21,8 +21,11 @@ Page({
     staffList: [],
     coupons: [],
     statusBarHeight: app.globalData.statusBarHeight,
-    countNum:0
+    countNum:0,
+    
   },
+
+
 
   /**
    * 生命周期函数--监听页面加载
