@@ -1,2 +1,41 @@
 <!--pages/order/order.wxml-->
-<text>pages/order/order.wxml</text>
+<view class="storelist-container">
+  <view class="storelist-main">
+    <van-tabs active="a" line-width="90rpx" line-height="6rpx"
+    color="#e4393c" title-active-color="black">
+      <van-tab title="进行中" name="a">
+        <view class="storelist-progress">
+          <view class="storelist-progress-content">
+            <view class="storelist-empty">
+              <view class="storelist-img"></view>
+              <view class="storelist-text">您还没有订单, 快去选一杯喜欢的饮品吧</view>
+              <view class="storelist-button">去喝一杯</view>
+            </view>
+          </view>
+        </view>
+      </van-tab>
+      <van-tab title="历史" name="b">
+        <view class="storelist-history">
+          <view class="storelist-history-content">
+            <view class="storelist-empty">
+              <view class="storelist-img"></view>
+              <view class="storelist-text">您还没有订单, 快去选一杯喜欢的饮品吧</view>
+              <view class="storelist-button">去喝一杯</view>
+            </view>
+          </view>
+        </view>
+      </van-tab>
+      <van-tab title="退单" name="c">
+        <view class="storelist-chargeback">
+          <view class="storelist-chargeback-content">
+            <view class="storelist-empty">
+              <view class="storelist-img"></view>
+              <view class="storelist-text">您还没有订单, 快去选一杯喜欢的饮品吧</view>
+              <view class="storelist-button">去喝一杯</view>
+            </view>
+          </view>
+        </view>
+      </van-tab>
+    </van-tabs>
+  </view>
+</view>

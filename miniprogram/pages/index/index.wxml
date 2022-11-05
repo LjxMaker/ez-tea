@@ -1,10 +1,53 @@
 <!--pages/index/index.wxml-->
-<text>pages/index/index.wxml</text>
+<view class="index-container">
+  <view class="index-header">
+    <view class="index-header-swiper">
+      <swiper class="swiper-item" interval="2000" indicator-dots="true" indicator-color="rgba(255,255,255,.3)" indicator-active-color="rgba(255,255,255,.8)" autoplay="true" circular="true">
+        <swiper-item wx:for="{{headerSwiperUrl}}" wx:key="index">
+          <image src="{{item}}"></image>
+        </swiper-item>
+      </swiper>
+    </view>
+    <view class="index-header-item">
+      <view class="index-header-left">
+        <view class="header-left-image">
+          <image class="left-img" src="../../images/icon_not_login_user.png"></image>
+        </view>
+        <view class="header-left-text">
+          <view class="header-text-top">小雪球会员</view>
+          <view class="header-text-bottom">再升1级可享[闲时优惠]等8项权益</view>
+        </view>
+      </view>
+      <view class="index-header-right">
+        <view class="header-right-coin">
+          <view class="header-right-coin-count">511</view>
+          <view class="header-right-coin-text">雪王币</view>
+        </view>
+        <view class="header-right-discount">
+          <view class="header-right-discount-count">0</view>
+          <view class="header-right-discount-text">优惠券</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="index-body">
+    <view class="index-body-type">
+      <view class="index-body-item">
+          <view class="body-retrieval">
+            <view class="body-retrieval-title">自取</view>
+            <view class="body-retrieval-text">下单免排队</view>
+          </view>
+          <view class="body-food">
+          <view class="body-food-title">外卖</view>
+          <view class="body-food-text">甜蜜送到家</view>
 
-<view>
-  <van-button type="default">默认按钮</van-button>
-  <van-button type="primary">主要按钮</van-button>
-  <van-button type="info">信息按钮</van-button>
-  <van-button type="warning">警告按钮</van-button>
-  <van-button type="danger">危险按钮</van-button>
+          </view>
+      </view>
+    </view>
+    <view class="index-body-select">
+      <view class="body-s-d body-select-drink">今天喝点啥</view>
+      <view class="body-s-d body-select-welfare">今天喝点啥</view>
+      <view class="body-s-d body-select-exchange">0元兑换</view>
+    </view>
+  </view>
 </view>
