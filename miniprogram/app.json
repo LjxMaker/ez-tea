@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/order/order",
+    "pages/user/user",
+    "pages/takeorder/takeorder"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#e60011",
+    "list": [
+      {
+        "selectedIconPath": "icons/icon_tab_home_select.png",
+        "iconPath": "icons/icon_tab_home_unselect.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "icons/icon_tab_take_order_select.png",
+        "iconPath": "icons/icon_tab_take_order_unselect.png",
+        "pagePath": "pages/takeorder/takeorder",
+        "text": "点餐"
+      },
+      {
+        "selectedIconPath": "icons/icon_tab_order_select.png",
+        "iconPath": "icons/icon_tab_order_unselect.png",
+        "pagePath": "pages/order/order",
+        "text": "订单"
+      },
+      {
+        "selectedIconPath": "icons/icon_tab_mine_select.png",
+        "iconPath": "icons/icon_tab_mine_unselect.png",
+        "pagePath": "pages/user/user",
+        "text": "用户"
+      }
+    ]
+  }
+}
