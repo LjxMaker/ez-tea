@@ -19,9 +19,9 @@
       </view>
 
       <view class="stepper">
-        <view wx:if="{{num !== 0}}" class="cut-btn count-btn">-</view>
+        <view wx:if="{{num !== 0}}" bindtap="cutGood" class="cut-btn count-btn">-</view>
         <view wx:if="{{num !== 0}}" class="num">{{num}}</view>
-        <view class="add-btn count-btn">+</view>
+        <view class="add-btn count-btn" bindtap="addGood">+</view>
       </view>
     </view>
   </view>

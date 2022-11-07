@@ -1,7 +1,13 @@
 <!--pages/storelist/storelist.wxml-->
-<view class="store-list-page" style="padding-top:{{statusBarHeight}}px">
-  <view class="map-view">
+<view class="store-list-page">
+  <view class="map-view" style="padding-top:{{statusBarHeight}}px">
     <map id="map" style="width: 100%; height: 450rpx;">
     </map>
   </view>
+  <view class="stroe-list">
+
+  </view>
+  <navigator url="../takeorder/takeorder">
+    <van-button size='large' color="#e60011">选择门店</van-button>
+  </navigator>
 </view>

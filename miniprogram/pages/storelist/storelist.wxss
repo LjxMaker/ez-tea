@@ -2,7 +2,17 @@
 .store-list-page{
   height: 100vh;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
-.map-view{
 
+.stroe-list{
+  flex-grow: 1;
+}
+
+.jump-btn{
+  width: 700rpx;
+  margin: 20rpx 25rpx;
+  height: 75rpx;
+  background-color: #e60011;
 }

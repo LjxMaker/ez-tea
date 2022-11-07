@@ -21,8 +21,77 @@ Page({
     staffList: [],
     coupons: [],
     statusBarHeight: app.globalData.statusBarHeight,
-    countNum:0,
-    
+    countNum: 0,
+    shopCartData: [],
+    goodsTypeChose: false,
+    popupGoodsData: {},
+    choseSuger: 0
+  },
+
+  //
+  backBtn() {
+    const pages = getCurrentPages(); //获取页面栈
+    const beforePage = pages[pages.length - 2]; //前一个页面
+    wx.navigateBack({ //跳转到前一个页面
+      success: function () {
+        //调用前一个页面的方法
+        beforePage.function();
+      }
+    })
+  },
+
+  //添加商品方法
+  addGoodEvent(e) {
+    console.log(e);
+    //查找商品是否存在
+    let goodsIndex = this.data.shopCartData.findIndex(ele => ele.coodid === e.detail.cookId)
+
+    if (goodsIndex === -1) {
+      this.setData({
+        goodsTypeChose: true,
+        popupGoodsData: e.detail
+      })
+    } else {
+      this.setData({
+        [`shopCartData[${goodsIndex}]`]: {
+          ...this.data.shopCartData[goodsIndex],
+          quantity: this.data.shopCartData[goodsIndex].quantity + 1
+        }
+      })
+    }
+  },
+  cutGoodEvent(e) {
+    console.log(e);
+    //查找商品是否存在
+    this.data.shopCartData.findIndex(ele => ele.coodid === e.cookId)
+  },
+
+  popupAddGoods() {
+    this.setData({
+      shopCartData: {
+        ...this.data.shopCartData.push({
+          ...this.popupGoodsData,
+          quantity: this.data.popupGoodsData.quantity + 1
+        })
+      }
+    })
+  },
+
+  popupCutGoods() {
+    this.setData({
+      shopCartData: {
+        ...this.data.shopCartData.push({
+          ...this.popupGoodsData,
+          quantity: this.data.popupGoodsData.quantity - 1
+        })
+      }
+    })
+  },
+
+  onClose() {
+    this.setData({
+      goodsTypeChose: false
+    });
   },
 
 

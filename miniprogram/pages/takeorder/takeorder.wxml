@@ -4,9 +4,9 @@
     <!-- 自定义的导航栏 -->
     <view class="custom flex_center">
       <view class="back-btn">
-        <navigator url="../index/index">
-          <van-icon name="arrow-left" />
-        </navigator>
+
+        <van-icon name="arrow-left" bindtap="backBtn" />
+
       </view>
 
       <view class='navInput'>
@@ -48,7 +48,7 @@
       <view id='{{"item"+index}}' class='pro-box' wx:for="{{serviceTypes.goods}}" wx:for-index="index" wx:for-item="item" wx:key="index">
         <view class="item-title">{{item.type}}</view>
         <view wx:for="{{item.infor}}" wx:for-item="ele" wx:for-index="i" wx:key="i">
-          <goods-item goods_data="{{ele}}" />
+          <goods-item  bind:addGood="addGoodEvent" bind:cutGood="cutGoodEvent" goods_data="{{ele}}" shopCartData="{{shopCartData}}" />
         </view>
       </view>
     </scroll-view>
@@ -77,8 +77,37 @@
   <van-submit-bar price="{{ countNum }}" button-text="提交订单" bind:submit="onClickButton" tip="{{ true }}">
     <image class="shop-bag" src="../../images/icon_cart.png"></image>
   </van-submit-bar>
-  <van-popup show="{{ show }}" bind:close="onClose">
+  <van-popup closeable round="true" show="{{ goodsTypeChose }}" bind:close="onClose">
+    <view class="goods-chose-box">
+      <view class="goods-info">
+        <view class="pic">
+          <van-image width="200rpx" height="200rpx" fit="cover" src="{{popupGoodsData.url}}" />
 
+        </view>
+        <view class="info">
+          <view class="title">
+            <view class="name">
+              {{popupGoodsData.name}}
+            </view>
+            <view class="describe">
+              {{popupGoodsData.describe}}
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <view class="price">
+        <view class="price-text">
+          ￥{{popupGoodsData.price}}
+        </view>
+        <van-button color="#e60011" wx:if="{{popupGoodsData.quantity === 0}}">加入购物车</van-button>
+        <view class="stepper" wx:if="{{popupGoodsData.quantity !== 0}}">
+          <view bindtap="cutGood" class="cut-btn count-btn">-</view>
+          <view class="num">{{num}}</view>
+          <view class="add-btn count-btn" bindtap="addGood">+</view>
+        </view>
+      </view>
+    </view>
   </van-popup>
 
 </view>

@@ -13,14 +13,16 @@ Page({
 
   },
 
-
-
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-
+  onLoad: function () {
+    // 实例化API核心类
+    qqmapsdk = new QQMapWX({
+      key: 'GBZBZ-V4O6R-UZDWF-WAU6S-X2L7K-HQB2P'
+    });
   },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -32,10 +34,10 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow() {
+  onShow: function () {
+    // 调用接口
 
   },
-
   /**
    * 生命周期函数--监听页面隐藏
    */
