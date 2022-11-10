@@ -1,0 +1,60 @@
+<view class="index-detail">
+  <view class="detail-navigation">
+    <view class="detail-title">
+      <navigator open-type="navigateBack" class="detail-arrow">
+        <van-icon name="arrow-left" class="a-l" />
+      </navigator>
+      <view class="detail-text">蜜雪冰城</view>
+    </view>
+  </view>
+  <view class="index-detail-body">
+    <view class="index-detail-header">
+      <view class="detail-header-title">{{renderType=='drink'?'今天喝点啥?':'小程序11月福利合集'}}</view>
+      <view class="detail-header-time">
+        <text class="honey-city">蜜雪冰城</text><text class="open-time">{{timeString}}</text><text>发表于广东</text>
+      </view>
+    </view>
+    <view class="detail-git-img"></view>
+    <view class="index-detail-container">
+      <view class="index-detail-main" style="background-image:url({{type}})" hidden="{{renderType=='welfare'}}">
+        <view class="index-main-bar">
+          <view class="index-main-time">{{titleTime}}</view>
+          <view class="index-main-week">{{weekString}}</view>
+        </view>
+        <view class="index-detail-switch">
+          <view class="index-detail-button" bindtap="switchPageEvent">看看昨天的</view>
+        </view>
+      </view>
+      <view class="index-detail-welfare" hidden="{{renderType=='drink'}}">
+        <view class="detail-welfare-image" wx:for="{{welfareUrl}}" wx:key="index">
+          <image class="welfare-img" src="{{item}}"></image>
+        </view>
+      </view>
+    </view>
+    <view class="index-detail-read">
+      <text>阅读</text><text>{{renderType=='welfare'?' 3.0万':' 9840'}}</text>
+    </view>
+    <view class="index-detail-thumb">
+      <view class="thumb-icon">
+        <van-icon name="good-job-o" />
+      </view>
+      <view class="thumb-number">3</view>
+    </view>
+    <view class="index-detail-footer">
+      <view class="detail-footer-content">
+        <view class="detail-footer-logo"></view>
+        <view class="detail-footer-center">
+          <view class="detail-footer-title">蜜雪冰城</view>
+          <view class="detail-footer-text">10篇原创内容 8个朋友关注</view>
+        </view>
+        <view class="detail-footer-follow">关注</view>
+      </view>
+      <view class="detail-footer-comment">
+        <view class="footer-comment-header">
+          <view class="f-c-left">精选留言</view>
+          <view class="f-c-right">写留言</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

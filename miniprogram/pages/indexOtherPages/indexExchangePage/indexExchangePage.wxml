@@ -1,0 +1,92 @@
+<view class="index-exchange">
+  <view class="index-exchange-navigation">
+    <view class="index-exchange-title">
+      <navigator open-type="navigateBack" class="exchange-arrow">
+        <van-icon name="arrow-left" class="a-l" />
+      </navigator>
+      <view class="exchange-text">雪王魔法铺</view>
+    </view>
+  </view>
+  <view class="index-exchange-body">
+    <view class="exchange-body-tips">
+      <view class="body-tips-icon">
+        <van-icon name="volume-o" />
+      </view>
+      <view class="body-tips-text">
+
+        <van-transition name="fade-up" wx:for="{{animateText}}" wx:key="index" show="{{ isRunText==index }}">
+          <view class="tips-text-list">{{item}}
+          </view>
+        </van-transition>
+      </view>
+    </view>
+    <view class="exchange-body-swiper">
+      <swiper class="swiper-item" interval="4000" indicator-dots="true" indicator-color="rgba(255,255,255,.3)" indicator-active-color="rgba(253, 87, 70,.8)" autoplay="true" circular="true">
+        <swiper-item wx:for="{{SwiperUrl}}" wx:key="index">
+          <image class="swiper-image" src="{{item}}"></image>
+        </swiper-item>
+      </swiper>
+    </view>
+    <view class="exchange-body-order">
+      <view class="body-order-header">
+        <view class="body-order-title">我的订单</view>
+        <view class="body-order-all">全部订单
+          <van-icon name="arrow" />
+        </view>
+      </view>
+      <view class="body-order-container">
+        <view class="body-order-item" wx:for="{{orderMessage}}" wx:key="index">
+          <view class="order-item-icon">
+            <van-icon name="{{item.icon}}" />
+          </view>
+          <view class="order-item-txt">{{item.text}}</view>
+        </view>
+
+      </view>
+    </view>
+    <view class="exchange-body-select">
+      <view class="body-select-item" wx:for="{{selectMessage}}" wx:key="index">
+        <view class="select-item-img">
+          <image class="auto-img" src="{{item.img}}"></image>
+        </view>
+        <view class="select-item-txt">{{item.text}}</view>
+      </view>
+    </view>
+    <view class="exchange-body-coupon">
+      <view class="body-coupon-swiper">
+        <swiper class="swiper-item" interval="4000" indicator-dots="true" indicator-color="#eee" indicator-active-color="#999" autoplay="true" circular="true">
+          <swiper-item wx:for="{{swiperMessage}}" wx:key="index">
+            <view class="swiper-container">
+
+              <view class="swiper-header-context">
+                <view class="swiper-header-left"></view>
+                <view class="swiper-header-right">
+                  <text>距开始: </text>
+                  <van-count-down time="{{ item.text.time }}" />
+                </view>
+              </view>
+              <view class="swiper-header-body">
+                <view class="swiper-by-img">
+                  <image class="swiper-img" src="{{item.cloud}}"></image>
+                </view>
+                <view class="swiper-by-items">
+                  <view class="swiper-by-items-title">{{item.text.title}}</view>
+                  <view class="swiper-by-items-t1">{{item.text.num}}</view>
+                  <view class="swiper-by-items-t2">{{item.text.discount}}</view>
+                  <view class="swiper-by-bottom">即将开始</view>
+                </view>
+              </view>
+            </view>
+          </swiper-item>
+        </swiper>
+      </view>
+    </view>
+    <view class="exchange-body-supermarket">
+      <van-tabs swipeable title-inactive-color="black" style="background:red">
+        <van-tab title="超值好券">内容 1</van-tab>
+        <van-tab title="惊喜周边">内容 2</van-tab>
+        <van-tab title="9币兑换">内容 3</van-tab>
+      </van-tabs>
+    </view>
+  </view>
+</view>

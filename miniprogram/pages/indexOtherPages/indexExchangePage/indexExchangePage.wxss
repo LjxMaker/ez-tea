@@ -1,0 +1,253 @@
+.index-exchange {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f7f7f7;
+}
+
+.index-exchange-navigation {
+  display: flex;
+  align-items: flex-end;
+  height: 11vh;
+  background: #fff;
+}
+
+.index-exchange-title {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2vh;
+}
+
+.exchange-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42rpx;
+  height: 42rpx;
+  margin: 0rpx 20rpx;
+}
+
+.a-l {
+  font-size: 42rpx;
+}
+
+.exchange-body-swiper{
+  margin:0rpx 20rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.exchange-text {
+  box-sizing: border-box;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32rpx;
+  padding-right:62rpx;
+}
+
+.index-exchange-body{
+ width:100vw;
+ height:100vh;
+ overflow: scroll;
+  background-color: #fff;
+}
+.index-exchange-body::-webkit-scrollbar{
+  width:0rpx;
+  height:0rpx;
+}
+
+.exchange-body-tips{
+  padding:20rpx 20rpx 0rpx;
+  display: flex;
+  align-items: center;
+  height:60rpx;
+  font-size:24rpx;
+  margin-bottom: 20rpx;
+}
+.body-tips-icon{
+  width:40rpx;
+  height:40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  font-weight: bold;
+  font-size:30rpx;
+  background:#f9e1d3;
+  margin-right:20rpx;
+  color:#fd9d68;
+  border-radius: 9999rpx;
+}
+.body-tips-text{
+  height:60rpx;
+  line-height: 60rpx;
+  transition: all 1s linear;
+  overflow: hidden;
+}
+
+.swiper-image{
+  display: block;
+  height:100%;
+}
+
+.exchange-body-order{
+  box-sizing: border-box;
+  margin:30rpx 20rpx;
+  padding:20rpx 30rpx;
+  height:260rpx;
+  border-radius: 20rpx;
+  box-shadow: 0rpx 0rpx 10rpx rgba(170, 170, 170, 0.5);
+  background:#fff;
+}
+
+.body-order-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height:60rpx;
+  border-bottom: 1rpx solid #efefef;
+}
+
+.body-order-title{
+  font-size:30rpx;
+  font-weight: bold;
+}
+.body-order-all{
+  font-size:28rpx;
+  color:#aaa;
+}
+.body-order-container{
+  box-sizing: border-box;
+display: flex;
+justify-content:space-around;
+align-items: center;
+height:160rpx;
+}
+
+.body-order-item{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.order-item-icon{
+  font-size:50rpx;
+  color:#777;
+}
+
+.order-item-txt{
+  font-size:26rpx;
+  font-weight: bold;
+}
+
+.exchange-body-select{
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.body-select-item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.select-item-img{
+  width:100rpx;
+  height:100rpx;
+  border-radius: 9999rpx;
+  overflow: hidden;
+}
+.auto-img{
+  display:block;
+  width:100rpx;
+  height:100rpx;
+}
+.select-item-txt{
+  margin-top:20rpx;
+  font-size:26rpx;
+  color:#777;
+}
+.exchange-body-coupon{
+  padding:40rpx 20rpx;
+  background:#eee;
+}
+.body-coupon-swiper{
+  box-sizing: border-box;
+  width:100%;
+  overflow: hidden;
+  border-radius: 20rpx;
+  background:#fff;
+  padding:20rpx;
+}
+.swiper-img{
+  display: block;
+  width:100%;
+  height:70%;
+  
+}
+.swiper-container{
+  width:100%;
+  height:100%;
+}
+.swiper-header-context{
+  box-sizing: border-box;
+  padding:0rpx 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height:30%;
+}
+.swiper-header-left{
+  width:200rpx;
+  height: 90%;
+  background-image: url(https://636c-cloud1-2g9ol1w699eb1c84-1314595113.tcb.qcloud.la/index-images/swiper-img/a1.jpg?sign=19ad623308bba6d67c1e3774fc44ddfb&t=1668078537);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.swiper-header-right{
+  display: flex;
+  align-items: center;
+  font-size:32rpx !important;
+}
+
+.swiper-header-body{
+  display: flex;
+  height:100%;
+}
+
+.swiper-by-img{
+  width:46%;
+  height:100%;
+  overflow: hidden;
+}
+.swiper-by-items{
+  margin-left: 40rpx;
+}
+
+.swiper-by-items-title{
+  font-size:30rpx;
+  font-weight: bold;
+}
+
+.swiper-by-items-t1{
+  height:60rpx;
+  line-height: 60rpx;
+  font-size:30rpx;
+  color:#e4393c;
+}
+.swiper-by-items-t2{
+  font-size:30rpx;
+  color:#777;
+  text-decoration:line-through;
+}
+.swiper-by-bottom{
+  margin-top:20rpx;
+  font-size:30rpx;
+  padding:10rpx 40rpx;
+  border:1rpx solid #a1d4d0;
+  border-radius: 9999rpx;
+  color:#76cac3;
+}

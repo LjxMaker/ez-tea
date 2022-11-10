@@ -1,0 +1,54 @@
+<view class="index-build">
+  <view class="index-build-navigation">
+    <view class="index-build-title">
+      <navigator open-type="navigateBack" class="build-arrow">
+        <van-icon name="arrow-left" class="a-l" />
+      </navigator>
+      <view class="build-text">创建地址</view>
+    </view>
+  </view>
+  <view class="index-build-body">
+    <view class="index-build-message">
+      <form>
+        <view class="index-build-item index-build-user">
+          <label class="build-label"><text class="select-txt">联系人</text><input type="text" id="user-text" value="{{renderMessage.userData}}" placeholder="请填写收货人姓名" bindchange="acceptUserName"/></label>
+        </view>
+        <view class="index-build-item index-build-gender">
+          <text class="select-txt">性别</text>
+          <view class="index-gender-select">
+            <radio-group bindchange="acceptGenderData">
+              <radio value="先生" color="#e4393c" class="gender-men" checked="{{genderData=='先生'}}" > 先生</radio>
+              <radio value="女士" color="#e4393c" class="gender-women" checked="{{genderData=='女士'}}">女士</radio>
+            </radio-group>
+
+          </view>
+        </view>
+        <view class="index-build-item index-build-telephone">
+          <label class="build-label">
+            <text class="select-txt">手机号</text>
+            <input type="tel" id="build-telephone" placeholder="请填写收货手机号"  value="{{renderMessage.telephoneData}}" bindchange="acceptUserTelephone"/>
+          </label>
+        </view>
+        <view class="index-build-item index-build-address">
+          <label class="build-label">
+            <text class="select-txt">地址</text>
+            <input type="text" id="build-address" placeholder="点击选择" value="{{renderMessage.addressData}}"  bindchange="acceptUserAddress"/>
+          </label>
+          <view class="icon-arrow" bindtap="jumpMapSearchPage">
+            <van-icon name="arrow" class="a-r" />
+          </view>
+        </view>
+        <view class="index-build-item index-build-place">
+          <label class="build-label">
+            <text class="select-txt">门牌号</text>
+            <input type="text" id="build-place" placeholder="例如:A座13楼1303室" value="{{renderMessage.doorplateData}}"   bindchange="acceptUserDoorplate"/>
+          </label>
+        </view>
+      </form>
+
+    </view>
+  </view>
+  <view class="index-build-footer">
+    <view class="index-build-savecontext" bindtap="submitUserMessage">保存</view>
+  </view>
+</view>

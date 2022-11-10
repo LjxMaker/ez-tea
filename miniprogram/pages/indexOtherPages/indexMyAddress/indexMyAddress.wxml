@@ -1,0 +1,39 @@
+<view class="index-my-address">
+  <view class="my-address-navigation">
+    <view class="my-address-title">
+      <navigator open-type="navigateBack" class="my-address-arrow">
+        <van-icon name="arrow-left" class="a-l" />
+      </navigator>
+      <view class="my-address-text">我的收货地址</view>
+    </view>
+  </view>
+  <view class="my-address-body">
+    <view class="my-address-empty" hidden="{{renderUserMessage.length!=0}}">
+      <view class="empty-img"></view>
+      <view class="empty-text">还没添加过地址</view>
+    </view>
+    <view class="my-address-list" hidden="{{renderUserMessage.length==0}}">
+      <view class="my-address-item" wx:for="{{renderUserMessage}}" wx:key="index">
+        <view class="my-address-item-left">
+          <view class="item-left-other">
+          <text>{{item.addressData}}</text>
+          <text hidden="{{!item.doorplateData}}"> , {{item.doorplateData}}</text>
+          </view>
+          <view class="item-left-main">
+            <text class="l-txt">{{item.userData}}</text>
+            <text>{{item.telephoneData}}</text>
+          </view>
+        </view>
+        <view class="my-address-item-right" bindtap="reEditMessage" data-usermessage="{{item}}">
+          <view class="item-right-icon"><van-icon name="edit" class="i-r-icon"/></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="my-address-footer">
+    <navigator url="../indexBuildAddress/indexBuildAddress" class="address-button" hover-class="navigator-hover">
+      <view>
+        添加地址</view>
+    </navigator>
+  </view>
+</view>

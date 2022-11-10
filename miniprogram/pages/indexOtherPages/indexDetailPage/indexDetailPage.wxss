@@ -1,0 +1,246 @@
+/* pages/indexOtherPages/indexDetailPage/indexDetailPage.wxss */
+.index-detail {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+}
+
+.detail-navigation {
+  position: fixed;
+  top: 0rpx;
+  left: 0rpx;
+  right: 0rpx;
+  display: flex;
+  align-items: flex-end;
+  height: 11vh;
+  background: #fff;
+  z-index: 999;
+}
+
+.detail-title {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2vh;
+}
+
+.detail-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42rpx;
+  height: 42rpx;
+  margin: 0rpx 20rpx;
+}
+
+.a-l {
+  font-size: 42rpx;
+}
+
+.detail-text {
+  font-size: 32rpx;
+}
+
+.index-detail-body {
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  overflow: scroll;
+  /* background:skyblue; */
+  padding-top: 11vh;
+}
+
+.index-detail-body::-webkit-scrollbar {
+  width: 0rpx;
+}
+
+.index-detail-header {
+  padding: 0rpx 40rpx;
+}
+
+.detail-header-title {
+  height: 120rpx;
+  line-height: 120rpx;
+  font-size: 36rpx;
+}
+
+.detail-header-time {
+  font-size: 30rpx;
+  color: #aaa;
+}
+
+.honey-city {
+  color: #6583ca;
+}
+
+.open-time {
+  margin: 0rpx 20rpx;
+}
+
+.detail-git-img {
+  margin: 60rpx 40rpx 40rpx;
+  height: 160rpx;
+  background-image: url(https://636c-cloud1-2g9ol1w699eb1c84-1314595113.tcb.qcloud.la/index-images/animate-img.gif?sign=65ad09b4fe721e9cadcaefbabc79b577&t=1667723520);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.index-detail-main {
+  position: relative;
+  width: 100%;
+  height: 1200rpx;
+  /* background-image: url(https://636c-cloud1-2g9ol1w699eb1c84-1314595113.tcb.qcloud.la/index-images/Sunday.jpg?sign=f209d6a1e9e4e22f16360d9489b1dcea&t=1667724117); */
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.index-detail-container {
+  box-sizing: border-box;
+  padding: 0rpx 40rpx;
+}
+
+.index-detail-welfare{
+  display: flex;
+  flex-direction: column;
+  width:100%;
+}
+.welfare-img{
+  display: block;
+  width:100%;
+}
+
+.index-main-bar {
+  margin: 0rpx auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 66%;
+  height: 8vh;
+  background: rgb(250, 244, 244);
+  font-size: 34rpx;
+  background: linear-gradient(#f68d06, #eaaa53, #f4af26, #fc8020, #9f282a, #ce93cd);
+  color: #fff;
+  border-radius: 0rpx 0rpx 20rpx 20rpx;
+}
+
+.index-main-time {
+  margin-right: 20rpx;
+}
+
+.index-detail-switch {
+  position: absolute;
+  bottom: 60rpx;
+  left: 0rpx;
+  right: 0rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.index-detail-button {
+  box-sizing: border-box;
+  padding: 20rpx 60rpx;
+  background: rgba(238, 238, 238, 0.336);
+  font-size: 30rpx;
+  border-radius: 9999rpx;
+}
+
+.index-detail-read {
+  box-sizing: border-box;
+  width:100%;
+  margin: 40rpx 40rpx 0rpx;
+  font-size: 30rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #aaa;
+}
+
+.index-detail-thumb {
+  box-sizing: border-box;
+  padding:0rpx 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.thumb-icon,
+.thumb-number {
+  width: 60rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+}
+
+.thumb-icon {
+  font-size: 36rpx;
+}
+
+.thumb-number {
+  font-size: 24rpx;
+}
+
+.index-detail-footer {
+  margin-top: 40rpx;
+  border-top: 1px solid rgba(204, 204, 204, 0.5);
+}
+
+.detail-footer-content {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40rpx;
+  padding:0rpx 40rpx;
+}
+
+.detail-footer-logo {
+  width: 80rpx;
+  height: 80rpx;
+  overflow: hidden;
+  border-radius: 9999rpx;
+  background-image: url(https://636c-cloud1-2g9ol1w699eb1c84-1314595113.tcb.qcloud.la/index-images/logo.png?sign=c55489ad39443a14777302975b7cdae6&t=1667728576);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.detail-footer-center {
+  flex: 1;
+  margin-left: 30rpx;
+
+}
+
+.detail-footer-title {
+  font-size: 34rpx;
+}
+
+.detail-footer-text {
+  font-size: 30rpx;
+  color: #888;
+}
+
+.detail-footer-follow {
+  padding: 10rpx 40rpx;
+  background: #17d56b;
+  font-size: 26rpx;
+  border-radius: 5rpx;
+  color: #fff;
+}
+
+.detail-footer-comment {
+  margin-top: 40rpx;
+  padding-top:40rpx;
+  background: rgba(204, 204, 204, 0.6);
+}
+.footer-comment-header{
+  display: flex;
+  justify-content: space-between;
+  height:80rpx;
+  line-height: 80rpx;
+  padding:0rpx 30rpx;
+  font-size:30rpx;
+  color: #666;
+}

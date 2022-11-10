@@ -1,0 +1,128 @@
+/* pages/indexMyAddress/indexMyAddress.wxss */
+.index-my-address {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f7f7f7;
+}
+
+.my-address-navigation {
+  display: flex;
+  align-items: flex-end;
+  height: 11vh;
+  background: #fb4142;
+}
+
+.my-address-title {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2vh;
+}
+
+.my-address-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42rpx;
+  height: 42rpx;
+  margin: 0rpx 20rpx;
+  color: #eee;
+}
+
+.a-l {
+  font-size: 42rpx;
+}
+
+.my-address-text {
+  font-size: 32rpx;
+  color: #eee;
+}
+
+.my-address-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.my-address-empty{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.empty-img{
+  width:360rpx;
+  height:360rpx;
+  background-image: url(https://636c-cloud1-2g9ol1w699eb1c84-1314595113.tcb.qcloud.la/index-images/img_empty_address.png?sign=0c0408a7ef5621c628f9821c3a0eed87&t=1667704211);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.empty-text{
+  font-size:24rpx;
+  color:gray;
+}
+.my-address-list{
+width:100%;
+height:100%;
+}
+.my-address-item{
+  box-sizing: border-box;
+  padding:30rpx 20rpx;
+  display: flex;
+  height:140rpx;
+  justify-content: space-between;
+  align-items: center;
+  background:#fff;
+}
+.my-address-item-left{
+  width:calc(100% - 70rpx);
+}
+.item-left-other{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size:30rpx;
+  margin-bottom: 10rpx;
+}
+.item-left-main{
+  display: flex;
+  align-items: center;
+  font-size:26rpx;
+  color:#666;
+}
+.l-txt{
+  margin-right:10rpx;
+}
+.my-address-item-right{
+  width:60rpx;
+  height:60rpx;
+  line-height: 60rpx;
+  text-align: center;
+}
+.i-r-icon{
+  font-size:40rpx;
+
+}
+.my-address-footer {
+  box-sizing: border-box;
+  height: 120rpx;
+  padding:20rpx;
+  background: #fff;
+}
+.address-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  height:100%;
+  background:#e50014;
+  border-radius: 10rpx;
+  color:#eee;
+  font-size:32rpx;
+
+}

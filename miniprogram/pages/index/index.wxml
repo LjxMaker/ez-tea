@@ -9,7 +9,7 @@
       </swiper>
     </view>
     <view class="index-header-item">
-      <view class="index-header-left">
+      <view class="index-header-left" bindtap="jumpUserPage">
         <view class="header-left-image">
           <image class="left-img" src="../../images/icon_not_login_user.png"></image>
         </view>
@@ -33,21 +33,22 @@
   <view class="index-body">
     <view class="index-body-type">
       <view class="index-body-item">
-          <view class="body-retrieval">
-            <view class="body-retrieval-title">自取</view>
-            <view class="body-retrieval-text">下单免排队</view>
+        <view class="body-retrieval">
+          <view class="body-retrieval-title">自取</view>
+          <view class="body-retrieval-text">下单免排队</view>
+        </view>
+        <navigator url="../indexOtherPages/indexMyAddress/indexMyAddress" hover-class="navigator-hover" class="body-food">
+          <view>
+            <view class="body-food-title">外卖</view>
+            <view class="body-food-text">甜蜜送到家</view>
           </view>
-          <view class="body-food">
-          <view class="body-food-title">外卖</view>
-          <view class="body-food-text">甜蜜送到家</view>
-
-          </view>
+        </navigator>
       </view>
     </view>
     <view class="index-body-select">
-      <view class="body-s-d body-select-drink">今天喝点啥</view>
-      <view class="body-s-d body-select-welfare">今天喝点啥</view>
-      <view class="body-s-d body-select-exchange">0元兑换</view>
+      <view class="body-s-d body-select-drink" bindtap="jumpDetailPage" data-text="{{'drink'}}">今天喝点啥</view>
+      <view class="body-s-d body-select-welfare" bindtap="jumpDetailPage" data-text="{{'welfare'}}">福利合集</view>
+      <view class="body-s-d body-select-exchange" bindtap="jumpExchangePage">0元兑换</view>
     </view>
   </view>
 </view>

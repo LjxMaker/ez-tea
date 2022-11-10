@@ -11,6 +11,27 @@ Page({
       "https://img-blog.csdnimg.cn/1472745c740d42caa002fb5b24b0069a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALeW4jOWGgC0=,size_20,color_FFFFFF,t_70,g_se,x_16"
     ]
   },
+  jumpUserPage() {
+    wx.switchTab({
+      url: "/pages/user/user"
+    })
+  },
+  jumpDetailPage(e) {
+    wx.navigateTo({
+      url: "/pages/indexOtherPages/indexDetailPage/indexDetailPage", 
+      success: function (res) {
+        // 通过 eventChannel 向被打开页面传送数据
+        res.eventChannel.emit('acceptOpenerPageData', {
+          data: e.target.dataset.text
+        })
+      }
+    })
+  },
+  jumpExchangePage(){
+    wx.navigateTo({
+      url: '/pages/indexOtherPages/indexExchangePage/indexExchangePage'
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
