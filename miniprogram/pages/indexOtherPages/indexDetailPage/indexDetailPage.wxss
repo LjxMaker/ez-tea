@@ -54,6 +54,7 @@
 
 .index-detail-body::-webkit-scrollbar {
   width: 0rpx;
+  height:0rpx;
 }
 
 .index-detail-header {

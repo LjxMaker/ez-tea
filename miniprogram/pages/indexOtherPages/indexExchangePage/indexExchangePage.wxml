@@ -82,10 +82,13 @@
       </view>
     </view>
     <view class="exchange-body-supermarket">
-      <van-tabs swipeable title-inactive-color="black" style="background:red">
-        <van-tab title="超值好券">内容 1</van-tab>
-        <van-tab title="惊喜周边">内容 2</van-tab>
-        <van-tab title="9币兑换">内容 3</van-tab>
+      <van-tabs swipeable title-inactive-color="black" >
+        <van-tab title="超值好券"><view class="supermarket-items">
+      <image class="super-img" src="../../../images/img_empty_coupon.png"></image></view></van-tab>
+        <van-tab title="惊喜周边"><view class="supermarket-items">
+      <image class="super-img" src="../../../images/img_empty_coupon.png"></image></view></van-tab>
+        <van-tab title="9币兑换"><view class="supermarket-items">
+      <image class="super-img" src="../../../images/img_empty_coupon.png"></image></view></van-tab>
       </van-tabs>
     </view>
   </view>
