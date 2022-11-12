@@ -1,0 +1,73 @@
+<!--pages/userCoin/userCoin.wxml-->
+<view class="user-coin-view">
+  <view class="header">
+    <view class="nav">
+      <navigator open-type="navigateBack">
+        <van-icon name="arrow-left" />
+      </navigator>
+      <view class="nav-text">我的雪王币</view>
+    </view>
+    <view class="coin-icon"></view>
+    <view class="coin-info">
+      <view class="coin-count">{{userdata.coin}}</view>
+      <view class="coin-text">雪王币明细
+        <van-icon name="arrow" />
+      </view>
+    </view>
+  </view>
+
+  <view class="coin-content">
+    <view class="content-icon">
+      <image src="/images/coin.png"></image>
+
+    </view>
+
+    <view class="content-text">日常任务</view>
+    <view class="content-item content-item1">
+      <view class="item-icon">
+        <image src="/images/icon_privilege_points.png"></image>
+      </view>
+      <view class="item-info">
+        <view class="item-text1">每日签到</view>
+        <view class="item-text2">
+          <view class="item-icon2">
+            <image src="/images/icon_coin_small.png"></image>
+          </view>
+          <view class="item-add">+5雪王币</view>
+        </view>
+      </view>
+      <button class="item-btn {{userdata.sign ? 'active' : '' }}" bindtap="sign" disabled="{{userdata.sign}}">{{userdata.sign ? "已完成" : "签到"}}</button>
+    </view>
+    <view class="content-item content-item2">
+      <view class="item-icon">
+        <image src="/images/icon_privilege_happy_download.png"></image>
+      </view>
+      <view class="item-info">
+        <view class="item-text1">完成订单</view>
+        <view class="item-text2">
+          <view class="item-icon2">
+            <image src="/images/icon_coin_small.png"></image>
+          </view>
+          <view class="item-add">+10雪王币（每实付1元）</view>
+        </view>
+      </view>
+      <button class="item-btn" bindtap="placeOrder">去下单</button>
+    </view>
+    <view class="content-text">新手任务</view>
+    <view class="content-item content-item3">
+      <view class="item-icon">
+        <image src="/images/icon_privilege_special_goods.png"></image>
+      </view>
+      <view class="item-info">
+        <view class="item-text1">完成首单</view>
+        <view class="item-text2">
+          <view class="item-icon2">
+            <image src="/images/icon_coin_small.png"></image>
+          </view>
+          <view class="item-add">+20雪王币（每实付1元）</view>
+        </view>
+      </view>
+      <button class="item-btn" bindtap="placeOrderFirst">去下单</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,21 @@
+<!--pages/userVip/userVip.wxml-->
+<navigator open-type="navigateBack">
+  <van-icon name="arrow-left" size="40rpx" class="arrow" />
+</navigator>
+<view class="user-info">
+  <view class="user-icon">
+    <image src="/images/icon_level_figure_3.png"></image>
+  </view>
+  <view class="user-name">{{m1.toEncrypt(userdata.userName)}}</view>
+  <wxs module="m1">
+    module.exports.toEncrypt = function (str) {
+      return str.slice(0, 3) + "******" + str.slice(9, 11)
+    }
+  </wxs>
+</view>
+
+<swiper bindchange="getCurrent" previous-margin="30rpx" style="background: linear-gradient({{bgColor[bgColorCurrent].top}}, {{bgColor[bgColorCurrent].bottom}})">
+  <swiper-item wx:for="{{vipData.vip}}" wx:key="index">
+    <vip-item vip_data="{{item}}" user_data="{{userdata}}" />
+  </swiper-item>
+</swiper>

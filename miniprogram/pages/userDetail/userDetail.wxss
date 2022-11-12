@@ -3,6 +3,8 @@
   padding: 70rpx 30rpx 0;
   background-color: #fff;
   font-size: 32rpx;
+  height: 100vh;
+  box-sizing: border-box;
 }
 
 .nav {
@@ -46,4 +48,13 @@
 
 radio {
   margin-right: 40rpx;
+}
+
+.save {
+  text-align: center;
+  padding: 20rpx 0;
+  background-color: #e50014;
+  color: #fff;
+  border-radius: 20rpx;
+  margin-top: 20rpx;
 }

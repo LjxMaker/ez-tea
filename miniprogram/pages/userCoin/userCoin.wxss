@@ -1,0 +1,167 @@
+/* pages/userCoin/userCoin.wxss */
+.user-coin-view {
+  height: 100vh;
+  background-color: #fff;
+}
+
+.header {
+  position: relative;
+  height: 350rpx;
+  padding: 70rpx 30rpx 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(https://636c-cloud1-2g9ol1w699eb1c84-1314595113.tcb.qcloud.la/user-images/img_order_detail_bg.png?sign=804cd5cd9f2c37832206d9db8889432d&t=1667704263);
+}
+
+.coin-icon {
+  position: absolute;
+  right: 30rpx;
+  bottom: 50rpx;
+  width: 200rpx;
+  height: 200rpx;
+  background-size: cover;
+  background-image: url(https://636c-cloud1-2g9ol1w699eb1c84-1314595113.tcb.qcloud.la/user-images/icon_loading1.png?sign=78eb7e8ef35b74747058deffae2e158d&t=1668154235);
+}
+
+.nav {
+  display: flex;
+  font-size: 36rpx;
+}
+
+.nav-text {
+  margin: 0 auto;
+  transform: translateX(-20rpx);
+  font-weight: 600;
+}
+
+.coin-info {
+  position: absolute;
+  bottom: 100rpx;
+  color: #fff;
+}
+
+.coin-count {
+  font-size: 60rpx;
+  font-weight: 600;
+}
+
+.coin-text {
+  font-size: 28rpx;
+  transform: translateY(10rpx);
+}
+
+.coin-content {
+  background-color: #fff;
+  border-top-left-radius: 40rpx;
+  border-top-right-radius: 40rpx;
+  padding: 30rpx;
+  overflow: hidden;
+  transform: translateY(-40rpx);
+}
+
+.content-icon {
+  height: 180rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.content-icon image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.content-item {
+  display: flex;
+  align-items: center;
+  height: 180rpx;
+  border-radius: 20rpx;
+  font-size: 32rpx;
+}
+
+.content-item1 {
+  margin-bottom: 20rpx;
+  background-color: #ffebed;
+}
+
+.content-item1 .item-btn {
+  color: #cc0010;
+}
+
+.content-item2 {
+  background-color: #fef3dd;
+}
+
+.content-item2 .item-btn {
+  color: #faaf09;
+}
+
+.content-item3 {
+  background-color: #e8e6fb;
+}
+
+.content-item3 .item-btn {
+  color: #5640e3;
+}
+
+.item-text1 {
+  font-weight: 600;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.item-text2 {
+  display: flex;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  align-items: center;
+}
+
+.item-btn {
+  width: 160rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  margin-left: auto;
+  margin-right: 30rpx;
+  background-color: #fff;
+  text-align: center;
+  border-radius: 20rpx;
+  font-size: 32rpx;
+}
+
+.item-icon {
+  width: 100rpx;
+  height: 100rpx;
+  padding: 0 10rpx;
+}
+
+.item-icon image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.item-icon2 {
+  width: 40rpx;
+  height: 40rpx;
+  transform: translateY(-5rpx);
+}
+
+.item-icon2 image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.item-add {
+  margin-left: 10rpx;
+  color: #666;
+}
+
+.content-text {
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+}

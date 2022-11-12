@@ -1,6 +1,6 @@
-// pages/userDetail.js
+// pages/userVip/userVip.js
+import vipData from '../../data/vip'
 const db = wx.cloud.database()
-const _ = db.command
 
 Page({
 
@@ -8,10 +8,32 @@ Page({
    * 页面的初始数据
    */
   data: {
-    date: "",
-    endDate: new Date(),
-    userData: {},
-    gender: ''
+    vipData: vipData,
+    bgColorCurrent: 0,
+    bgColor: [{
+        top: "#ffe5e4",
+        bottom: "#f6f6f6"
+      },
+      {
+        top: "#dbf1fe",
+        bottom: "#f7ffff"
+      },
+      {
+        top: "#fefdf9",
+        bottom: "#fefdf9"
+      },
+      {
+        top: "#e7e7e7",
+        bottom: "#f9f9f7"
+      }
+    ],
+    userdata: {}
+  },
+
+  getCurrent(e) {
+    this.setData({
+      bgColorCurrent: e.detail.current
+    })
   },
 
   getUserData() {
@@ -23,37 +45,6 @@ Page({
         })
       }
     })
-  },
-
-  getGender(e) {
-    console.log(e.detail.value)
-    this.setData({
-      gender: e.detail.value
-    })
-  },
-
-  save() {
-    if (this.data.date) {
-      db.collection('userData').doc('a07d70686368f4960040c3ed33e2610d').update({
-        data: {
-          gender: this.data.gender,
-          birthday: this.data.date
-        },
-        success: res => {
-          console.log(res)
-        }
-      })
-    } else {
-      db.collection('userData').doc('a07d70686368f4960040c3ed33e2610d').update({
-        data: {
-          gender: this.data.gender,
-        },
-        success: res => {
-          console.log(res)
-        }
-      })
-    }
-
   },
 
   /**

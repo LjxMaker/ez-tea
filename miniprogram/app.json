@@ -9,7 +9,9 @@
     "pages/indexOtherPages/indexMyAddress/indexMyAddress",
     "pages/indexOtherPages/indexBuildAddress/indexBuildAddress",
     "pages/indexOtherPages/indexDetailPage/indexDetailPage",
-    "pages/indexOtherPages/indexExchangePage/indexExchangePage"
+    "pages/indexOtherPages/indexExchangePage/indexExchangePage",
+    "pages/userCoin/userCoin",
+    "pages/userVip/userVip"
 
   ],
   "window": {

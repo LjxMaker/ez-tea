@@ -1,4 +1,4 @@
-// pages/userDetail.js
+// pages/userCoin/userCoin.js
 const db = wx.cloud.database()
 const _ = db.command
 
@@ -8,11 +8,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    date: "",
-    endDate: new Date(),
-    userData: {},
-    gender: ''
+    userdata: {}
   },
+
 
   getUserData() {
     db.collection('userData').get({
@@ -25,35 +23,29 @@ Page({
     })
   },
 
-  getGender(e) {
-    console.log(e.detail.value)
-    this.setData({
-      gender: e.detail.value
+  sign() {
+    db.collection('userData').doc('a07d70686368f4960040c3ed33e2610d').update({
+      data: {
+        coin: _.inc(5),
+        sign: true
+      },
+      success: res => {
+        console.log(res)
+        this.getUserData()
+      }
     })
   },
 
-  save() {
-    if (this.data.date) {
-      db.collection('userData').doc('a07d70686368f4960040c3ed33e2610d').update({
-        data: {
-          gender: this.data.gender,
-          birthday: this.data.date
-        },
-        success: res => {
-          console.log(res)
-        }
-      })
-    } else {
-      db.collection('userData').doc('a07d70686368f4960040c3ed33e2610d').update({
-        data: {
-          gender: this.data.gender,
-        },
-        success: res => {
-          console.log(res)
-        }
-      })
-    }
+  placeOrder() {
+    wx.switchTab({
+      url: '/pages/index/index'
+    })
+  },
 
+  placeOrderFirst() {
+    wx.switchTab({
+      url: '/pages/index/index'
+    })
   },
 
   /**
