@@ -1,0 +1,79 @@
+
+.goods-item {
+  display: flex;
+  width: 100%;
+  padding: 10rpx;
+  background-color: #fff;
+}
+
+.info{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  padding:10rpx 20rpx 1rpx 4rpx;
+}
+
+.pic {
+  width: 140rpx;
+  height: 140rpx;
+  margin-right: 20rpx;
+  overflow: hidden;
+  border-radius: 10rpx;
+  display: flex;
+  align-items: end;
+}
+
+
+.name {
+  padding-top: 4rpx;
+  margin-bottom: 4rpx;
+  font-weight: bold;
+  font-size: 16px;
+
+}
+
+.describe {
+  color: #aaa;
+  font-size: 12px;
+}
+
+.price {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+}
+
+.price-text {
+  font-size: 18px;
+  color: #111;
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+}
+
+.count-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50rpx;
+  height: 50rpx;
+  font-weight: bold;
+}
+
+.count-btn>image{
+  width: 100%;
+  height: 100%;
+}
+
+
+.num{
+  font-size: 12px;
+  padding: 10rpx;
+}
+
+.cut-btn{
+  color: #e60011;
+}

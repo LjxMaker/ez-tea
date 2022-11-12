@@ -1,0 +1,20 @@
+
+<view class="goods-item">
+  <view class="pic">
+  <image style="width: 140rpx;height: 140rpx;" src="{{goods_data.url}}"></image>
+  </view>
+  <view class="info">
+    <view class="title">
+      <view class="name">
+        <text>{{goods_data.name}}</text>
+        <text>￥{{sum_price}}</text>
+      </view>
+      <view class="describe">
+        {{typeWords}}
+      </view>
+    </view>
+    <view class="count-box">
+      <view style="color: #777;" wx:if="{{goods_data.quantity !== 0}}" class="num">X {{goods_data.quantity}}</view>
+    </view>
+  </view>
+</view>

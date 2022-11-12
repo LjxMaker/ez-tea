@@ -1,0 +1,136 @@
+<view class="submit-page">
+  <view class="index-submit-navigation">
+    <view class="index-submit-title">
+      <view style="margin: 0;" class="nav-arrow-box">
+
+      <navigator open-type="navigateBack" >
+        <van-icon style="color:#777" name="arrow-left" class="a-l" />
+      </navigator>
+      </view>
+      <view class="submit-text">蜜雪冰城</view>
+    </view>
+
+  </view>
+  <view class="main">
+    <view class="bg">
+      <image src="../../images/bg_order_rectangle.png"></image>
+    </view>
+
+
+    <view class="submit-header">
+      <view class="navback-btn">
+        <navigator open-type="navigateBack" class="submit-arrow">
+          <van-icon name="arrow-left" class="a-l" />
+        </navigator>
+      </view>
+      <view class="header-text"><text>订单结算</text></view>
+    </view>
+
+    <view class="order-card">
+      <view class="order-card-header">
+        <view class="order-card-header-top">
+          <view class="shop-title">
+            <text>自提</text>
+            <image src="../../images/bg_order_shop_title.png"></image>
+            <view class="jul-text">距离您</view>
+          </view>
+          <view class="order-address">
+            <view class="address-title">
+              <text>{{storeAddress}}</text>
+            </view>
+            <view class="address-sub-title">
+              <text>{{storeDetilAddress}}</text>
+            </view>
+          </view>
+
+          <view class="gettime">
+            <view class="gettime-text">自提时间</view>
+            <view class="gettime-picker">
+              <view class="section">
+                <picker bindchange="bindPickerChange" value="{{index}}" range="{{timeArray}}">
+                  <view class="picker">
+                    {{choseTime}}
+                  </view>
+                </picker>
+              </view>
+
+              <van-icon style="color:#777" name="arrow" class="a-l" />
+
+            </view>
+
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="shop-cart-box">
+
+      <view style="max-height:{{goods_flot ? 'auto' : '360rpx'}}" class="goods-list">
+        <view wx:for="{{shopCartData}}" wx:for-item="ele" wx:for-index="i" wx:key="i">
+          <goods-item data-goodsData="{{ele}}" goods_data="{{ele}}" shopCartData="{{shopCartData}}" />
+        </view>
+      </view>
+      <view class="open-flot-btn" bindtap="toggleFlot">
+        <view wx:if="{{!goods_flot && shopCartData.length !== 0}}">展开全部</view>
+        <view wx:if="{{goods_flot}}">收起更多</view>
+      </view>
+
+      <view class="cut-line"></view>
+      <view class="coupon-bar">
+        <text>优惠卷</text>
+        <view>
+          暂无优惠券
+        </view>
+      </view>
+
+      <view class="count-bar">
+        <view class="count-box">
+          <view class="num-count">共计 {{sum_goods}} 件，合计</view>
+          <view class="price-count">{{sum_price}}</view>
+        </view>
+      </view>
+
+    </view>
+
+    <view class="note-box" bindtap="showNote">
+      <view class="">
+        <text>备注</text>
+      </view>
+      <view style="color:#777" class="">
+        <text>暂不支持通过备注定制口味</text>
+        <van-icon style="color:#777" name="arrow" class="a-l" />
+
+      </view>
+    </view>
+
+    <view class="bottom">
+      <view style="display: flex;align-items: center;">
+        <text>实付: </text>
+        <text class="final-price"> ￥{{sum_price}}</text>
+      </view>
+      <view class="submit-btn" bindtap="payBtnEvent">
+        <van-button color="#ee0a24" round>确认支付</van-button>
+      </view>
+    </view>
+
+  </view>
+</view>
+
+<view wx:if="{{shownote}}" class="note-face">
+  <view class="index-submit-navigation">
+    <view bindtap="hideNote" class="index-submit-title">
+      <view class="nav-arrow-box">
+        <van-icon style="color:#777" name="arrow-left" class="a-l" />
+      </view>
+      <view class="submit-text">备注</view>
+    </view>
+  </view>
+  <view class="note-input-box" style="color: {{noteValue.length > 20 ? 'red': '#000'}};">
+    <textarea  model:value="{{noteValue}}" style="width: 590rpx; height: 300rpx;" ></textarea>
+    <view style="color: {{noteValue.length > 20 ? 'red': '#000'}};" class="text-count-box">{{noteValue.length}}/20</view>
+  </view>
+  <view bindtap="submitnote" class="note-submit-btn">
+    完成
+  </view>
+
+</view>

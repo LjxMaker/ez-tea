@@ -1,0 +1,33 @@
+
+<view class="goods-item">
+  <view class="pic">
+    <van-image width="140rpx" height="140rpx" fit="cover" src="{{goods_data.url}}" />
+  </view>
+  <view class="info">
+    <view class="title">
+      <view class="name">
+        {{goods_data.name}}
+      </view>
+      <view class="describe">
+        {{typeWords}}
+      </view>
+    </view>
+    <view class="price">
+      <view class="price-text">
+        ￥{{sum_price}}
+      </view>
+      <view class="stepper">
+        <view wx:if="{{goods_data.quantity !== 0}}" bindtap="shopCartCutGood" class="cut-btn count-btn">
+          <image src="../../icons/icon_number_minus_alive.png"></image>
+        </view>
+        <view wx:if="{{goods_data.quantity !== 0}}" class="num">
+          {{goods_data.quantity}}
+        </view>
+        <view class="add-btn count-btn" bindtap="shopCartAddGood">
+          <image src="../../icons/icon_number_add.png"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>
