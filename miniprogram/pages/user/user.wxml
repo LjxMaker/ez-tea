@@ -1,45 +1,62 @@
-<view class="user-view">
+<view class="user-view" style="background: linear-gradient({{bgColor[userdata.level - 1].top}}, {{bgColor[userdata.level - 1].bottom}})">
   <view class="user-info">
     <navigator url="/pages/userDetail/userDetail">
       <view class="user-icon">
-        <image src="/images/icon_not_login_user.png"></image>
+        <image src="/images/icon_level_figure_3.png"></image>
       </view>
     </navigator>
 
-    <view class="user-name">134******68</view>
-    <view class="user-sign">
+    <view class="user-name">{{m1.toEncrypt(userdata.userName)}}</view>
+    <wxs module="m1">
+      module.exports.toEncrypt = function (str) {
+        return str.slice(0, 3) + "******" + str.slice(9, 11)
+      }
+    </wxs>
+    <button class="user-sign" bindtap="sign" disabled="{{userdata.sign}}" style="background: linear-gradient({{bgColor[userdata.level - 1].right}}, {{bgColor[userdata.level - 1].left}})">
       <van-icon class="gift" name="point-gift" size="34rpx" />签到
-    </view>
+    </button>
   </view>
 
-  <view class="user-vip">
+  <view class="user-vip" style="background: linear-gradient(to left top, {{bgColor[userdata.level - 1].left}}, {{bgColor[userdata.level - 1].right}})">
     <view class="vip-left">
-      <view class="vip-name">大雪人会员</view>
-      <view class="vip-sweet">甜蜜值：520/1000</view>
-      <progress percent="50" border-radius="999px" activeColor="#fff" backgroundColor="#fbdda0" active></progress>
-      <view class="vip-text">再升一级可享【攒币加速】等9项权益</view>
+      <view class="vip-name">{{userdata.vipName}}</view>
+      <view class="vip-sweet">甜蜜值：{{userdata.currentSweet}}/{{userdata.totalSweet}}</view>
+      <progress percent="{{m2.toDivision(userdata.currentSweet, userdata.totalSweet)}}" border-radius="999px" activeColor="#fff" backgroundColor="#ffffff66" active></progress>
+      <wxs module="m2">
+        module.exports.toDivision = function (str1, str2) {
+          return str1 / str2 * 100
+        }
+      </wxs>
+      <view class="vip-text">{{userdata.desc}}</view>
     </view>
-    <view class="vip-right">
-      <view class="vip-icon">
+    <navigator url="/pages/userVip/userVip">
+      <view class="vip-right">
+        <view class="vip-icon">
+          <image src="{{userdata.icon}}"></image>
+        </view>
+        <view class="vip-look">查看权益
+          <van-icon name="arrow" size="24rpx" />
+        </view>
       </view>
-      <view class="vip-look">查看权益 ></view>
-    </view>
+    </navigator>
   </view>
 
   <view class="user-info2">
-    <view class="user-coin">
-      <view class="coin-left">
-        <view class="coin-count">1000</view>
-        <view class="coin-text">雪王币</view>
+    <navigator url="/pages/userCoin/userCoin">
+      <view class="user-coin">
+        <view class="coin-left">
+          <view class="coin-count">{{userdata.coin}}</view>
+          <view class="coin-text">雪王币</view>
+        </view>
+        <view class="coin-right">
+          <image src="/images/icon_coin.png"></image>
+        </view>
       </view>
-      <view class="coin-right">
-        <image src="/images/icon_coin.png"></image>
-      </view>
-    </view>
+    </navigator>
 
-    <view class="user-coin">
+    <view class="user-coin" bindtap="add">
       <view class="coin-left">
-        <view class="coin-count">10</view>
+        <view class="coin-count">{{userdata.coupon}}</view>
         <view class="coin-text">优惠券</view>
       </view>
       <view class="coin-right">

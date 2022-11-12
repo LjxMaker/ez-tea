@@ -1,0 +1,30 @@
+<!--components/vip-items/vip-item.wxml-->
+<view class="user-vip" style="background: linear-gradient(to left top, {{vip_data.bgLeftColor}}, {{vip_data.bgRightColor}}); color: {{vip_data.color}}">
+  <view class="vip-left">
+    <view class="vip-name">{{vip_data.name}}</view>
+    <view wx:if="{{vip_data.level ==  user_data.level}}">
+      <view class="vip-sweet">甜蜜值：{{user_data.currentSweet}}/{{user_data.totalSweet}}</view>
+      <progress percent="{{m1.toDivision(user_data.currentSweet, user_data.totalSweet)}}" border-radius="999px" activeColor="#fff" backgroundColor="#ffffff66" active></progress>
+    </view>
+    <wxs module="m1">
+      module.exports.toDivision = function (str1, str2) {
+        return str1 / str2 * 100
+      }
+    </wxs>
+    <view class="vip-text" wx:if="{{vip_data.level == user_data.level}}">{{user_data.desc}}</view>
+    <view class="vip-text" wx:if="{{vip_data.level != user_data.level}}">{{user_data.level > vip_data.level ? vip_data.passLevelDesc : vip_data.desc}}</view>
+  </view>
+
+
+  <view class="vip-right">
+    <view class="vip-icon">
+      <image src="{{vip_data.icon}}"></image>
+    </view>
+  </view>
+</view>
+<view class="vip-equity1" wx:if="{{vip_data.level == 1 ||vip_data.level == 2}}">
+  <image src="{{vip_data.equity}}"></image>
+</view>
+<view class="vip-equity2" wx:if="{{vip_data.level == 3 ||vip_data.level == 4}}">
+  <image src="{{vip_data.equity}}"></image>
+</view>

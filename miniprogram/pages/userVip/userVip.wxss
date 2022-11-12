@@ -1,0 +1,45 @@
+/* pages/userVip/userVip.wxss */
+.arrow {
+  position: absolute;
+  top: 75rpx;
+  left: 30rpx;
+}
+
+.user-info {
+  position: absolute;
+  top: 140rpx;
+  left: 30rpx;
+  display: flex;
+  align-items: center;
+}
+
+.user-icon {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 999px;
+  background-color: #fff;
+}
+
+.user-icon image {
+  width: 104rpx;
+  height: 120rpx;
+  display: block;
+  margin: auto;
+  transform: translateX(2px);
+}
+
+.user-name {
+  margin-left: 30rpx;
+  font-size: 36rpx;
+}
+
+swiper {
+  padding-top: 300rpx;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+/* 也可用margin加边距 */
+/* swiper-item {
+  margin: 0 30rpx;
+} */
