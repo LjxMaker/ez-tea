@@ -36,7 +36,7 @@
 
 
   <!-- 选择项目 -->
-  <view wx:if="{{currentTab==0}}" class='cont-pro'>
+  <view class='cont-pro'>
     <!-- 左侧列表 -->
     <view class='pro-left'>
       <view wx:for="{{serviceTypes.list}}" class='pro-title {{index==currentLeft?"  tabs-active":""}}' wx:key="index" bindtap='proItemTap' data-pos='{{index}}'>{{item}}</view>
@@ -45,38 +45,64 @@
     <scroll-view class='pro-right' scroll-y scroll-with-animation="true" scroll-into-view="{{selectId}}" bindscroll="scrollEvent" scroll-top="{{scrollTop}}">
       <!-- id要用来实现点击左侧右侧滚动至相应位置的效果；class（pro-box）要用来计算右侧对应左侧某一分类的高度 -->
       <!-- id: item0, item1, item2... （注意：不能直接使用数字或汉字做id）-->
+      <view class="swiper">
+        <swiper>
+          <swiper-item>
+            <image class="swiper-img" style="width: 100%;height: 100%;" src="cloud://cloud1-2g9ol1w699eb1c84.636c-cloud1-2g9ol1w699eb1c84-1314595113/tea_image/swiper/lb3.png"></image>
+
+          </swiper-item>
+          <swiper-item>
+            <image class="swiper-img" src="cloud://cloud1-2g9ol1w699eb1c84.636c-cloud1-2g9ol1w699eb1c84-1314595113/tea_image/swiper/lb1.png"></image>
+          </swiper-item>
+        </swiper>
+      </view>
       <view id='{{"item"+index}}' class='pro-box' wx:for="{{serviceTypes.goods}}" wx:for-index="index" wx:for-item="item" wx:key="index">
         <view class="item-title">{{item.type}}</view>
         <view wx:for="{{item.infor}}" wx:for-item="ele" wx:for-index="i" wx:key="i">
-          <goods-item  bind:addGood="addGoodEvent" bind:cutGood="cutGoodEvent" goods_data="{{ele}}" shopCartData="{{shopCartData}}" />
+          <goods-item bind:addGood="addGoodEvent" bind:cutGood="cutGoodEvent" goods_data="{{ele}}" shopCartData="{{shopCartData}}" />
         </view>
       </view>
     </scroll-view>
   </view>
 
-  <!-- <view class="main">
-    <scroll-view class="side-bar" scroll-y="true">
-      <van-sidebar active-key="{{ activeKey }}">
-        <van-sidebar-item bindtap="" wx:for="{{goods_title}}" wx:key="index" title="{{item}}" />
-      </van-sidebar>
-    </scroll-view>
+  <van-submit-bar bind:disabled="{{submitDisabled}}" price="{{ sum_price }}" button-text="提交订单" bind:submit="submitOrder" tip="{{ true }}" style="z-index: 2;">
+    <view style="position: relative;">
+      <image bindtap="shopCartPopupShow" class="shop-bag" src="../../images/icon_cart.png"></image>
+      <view class="number-tip">
+        <view class="tip-text">{{sum_goods}}</view>
+        <image src="../../icons//icon_bg_number_tip.png"></image>
 
-    <scroll-view class="content" scroll-into-view="{{id}}" scroll-y='true' scroll-with-animation='true'>
-      <view wx:for="{{goods}}" wx:key="index">
-        <view id="{{'cyd'+item.typeId}}" class="goods-type-title">
-          <text>{{item.type}}</text>
+      </view>
+    </view>
+  </van-submit-bar>
+
+  <!-- 购物车弹出框 -->
+
+  <van-popup z-index="1" show="{{ shopCartPopup }}" round position="bottom" custom-style="max-height: 70%; min-height:30%;" bind:close="shopCartPopupClose">
+    <view class="shop-popup-box">
+      <view class="shop-popup-header">
+        <view class="shop-popup-title">
+          <text>已选商品</text>
         </view>
 
-        <view wx:for="{{item.infor}}" wx:for-item="ele" wx:for-index="i" wx:key="i">
-          <goods-item goods_data="{{ele}}" />
+        <view bindtap="clearBtn" class="clear-shopCart-btn">
+          <text>清空</text>
+          <van-icon name="delete-o" />
         </view>
       </view>
-    </scroll-view>
-  </view> -->
 
-  <van-submit-bar price="{{ countNum }}" button-text="提交订单" bind:submit="onClickButton" tip="{{ true }}">
-    <image class="shop-bag" src="../../images/icon_cart.png"></image>
-  </van-submit-bar>
+      <scroll-view 	scroll-y="true" class="shopCart-list">
+        <view wx:for="{{shopCartData}}"  wx:for-item="ele" wx:for-index="i" wx:key="i">
+          <shopCart-item bind:shopCartAddGood="shopCartAddGoodEvent" bind:shopCartCutGood="shopCartCutGoodEvent" data-goodsData="{{ele}}" goods_data="{{ele}}" shopCartData="{{shopCartData}}" />
+        </view>
+
+      </scroll-view>
+    </view>
+
+  </van-popup>
+
+
+  <!-- 弹出框 -->
   <van-popup closeable round="true" show="{{ goodsTypeChose }}" bind:close="onClose">
     <view class="goods-chose-box">
       <view class="goods-info">
@@ -96,15 +122,38 @@
         </view>
       </view>
 
+      <view class="taste-type-list" wx:if="{{popupGoodsData.sugar[0]}}">
+        <view class="taste-type-title">
+          甜度
+        </view>
+        <view class="taste-type-item">
+          <view bindtap="choseSugerEvent" wx:key="index" data-sugerindex="{{index}}" class="taste-type-tab {{choseSuger === index? 'active':''}}" wx:for="{{popupGoodsData.sugar}}">
+            {{item}}
+          </view>
+        </view>
+      </view>
+
+
+      <view class="taste-type-list" wx:if="{{popupGoodsData.temp[0]}}">
+        <view class="taste-type-title">
+          温度
+        </view>
+        <view class="taste-type-item">
+          <view bindtap="choseTempEvent" wx:key="index" data-tampindex="{{index}}" class="taste-type-tab {{choseTemp === index? 'active':''}}" wx:for="{{popupGoodsData.temp}}">
+            {{item}}
+          </view>
+        </view>
+      </view>
+
       <view class="price">
         <view class="price-text">
           ￥{{popupGoodsData.price}}
         </view>
-        <van-button color="#e60011" wx:if="{{popupGoodsData.quantity === 0}}">加入购物车</van-button>
-        <view class="stepper" wx:if="{{popupGoodsData.quantity !== 0}}">
-          <view bindtap="cutGood" class="cut-btn count-btn">-</view>
-          <view class="num">{{num}}</view>
-          <view class="add-btn count-btn" bindtap="addGood">+</view>
+        <van-button bindtap="popupAddGoods" color="#e60011" wx:if="{{popupgoods_num === 0}}">加入购物车</van-button>
+        <view class="stepper" wx:if="{{popupgoods_num !== 0}}">
+          <view bindtap="cutGood" class="cut-btn count-btn" bindtap="popupCutGoods">-</view>
+          <view class="num">{{popupgoods_num}}</view>
+          <view class="add-btn count-btn" bindtap="addGood" bindtap="popupAddGoods">+</view>
         </view>
       </view>
     </view>

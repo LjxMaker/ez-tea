@@ -11,6 +11,7 @@
     "van-index-anchor": "@vant/weapp/index-anchor/index",
     "van-card": "@vant/weapp/card/index",
     "goods-item": "../../components/goods-item/goodItem",
+    "shopCart-item": "../../components/shopCartItem/shopCartItem",
     "van-popup": "@vant/weapp/popup/index",
     "van-submit-bar": "@vant/weapp/submit-bar/index",
     "van-image": "@vant/weapp/image/index"

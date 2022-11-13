@@ -3,14 +3,67 @@ var app = getApp();
 
 var QQMapWX = require('../../libs/qqmap-wx-jssdk.js');
 var qqmapsdk;
+
+import storeListData from '../../data/store'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    statusBarHeight: app.globalData.statusBarHeight
+    statusBarHeight: app.globalData.statusBarHeight,
+    flodMap: false,
+    storeList: [],
+    showPopup: false,
+    choseStore: {},
+    markers: [{
+      iconPath: "../../icons/icon_shop_normal.png",
+      longitude: 121.45088,
+      latitude: 31.25145,
+      id: 0,
+      width: 33,
+      height: 40.5
+    }]
+  },
 
+  selectStore(e) {
+    console.log(e);
+    this.setData({
+      showPopup: true,
+      choseStore: e.currentTarget.dataset.store
+    });
+
+    console.log(this.data.choseStore);
+  },
+
+  jumpTakeOrder() {
+    wx.navigateTo({
+      url: '../takeorder/takeorder',
+      success: (res) => {
+        res.eventChannel.emit('pushstoredata', {
+          data: {
+            storeAddress: this.data.choseStore.storeAddress,
+            storeDetilAddress: this.data.choseStore.storeDetilAddress,
+            storeDistance: this.data.choseStore.storeDistance,
+            storeBusinessHoursOpen: this.data.choseStore.storeBusinessHoursOpen,
+            storeBusinessHoursClose: this.data.choseStore.storeBusinessHoursClose
+          }
+        })
+      }
+    })
+  },
+
+  onClosePopup() {
+    this.setData({
+      showPopup: false
+    });
+  },
+
+  clickflodMap() {
+    this.setData({
+      flodMap: !this.data.flodMap
+    })
   },
 
   /**
@@ -21,6 +74,11 @@ Page({
     qqmapsdk = new QQMapWX({
       key: 'GBZBZ-V4O6R-UZDWF-WAU6S-X2L7K-HQB2P'
     });
+
+    this.setData({
+      storeList: storeListData.store_list
+    })
+
   },
 
 

@@ -2,7 +2,6 @@
 <view class="goods-item">
   <view class="pic">
     <van-image width="200rpx" height="200rpx" fit="cover" src="{{goods_data.url}}" />
-
   </view>
   <view class="info">
     <view class="title">
@@ -19,9 +18,13 @@
       </view>
 
       <view class="stepper">
-        <view wx:if="{{num !== 0}}" bindtap="cutGood" class="cut-btn count-btn">-</view>
+        <view wx:if="{{num !== 0}}" bindtap="cutGood" class="cut-btn count-btn">
+          <image src="../../icons/icon_number_minus_alive.png"></image>
+        </view>
         <view wx:if="{{num !== 0}}" class="num">{{num}}</view>
-        <view class="add-btn count-btn" bindtap="addGood">+</view>
+        <view class="add-btn count-btn" bindtap="addGood">
+          <image src="../../icons/icon_number_add.png"></image>
+        </view>
       </view>
     </view>
   </view>

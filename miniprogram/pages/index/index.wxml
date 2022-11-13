@@ -14,17 +14,17 @@
           <image class="left-img" src="../../images/icon_not_login_user.png"></image>
         </view>
         <view class="header-left-text">
-          <view class="header-text-top">大雪球会员</view>
-          <view class="header-text-bottom">再升一级可享【攒币加速】等9项权益</view>
+          <view class="header-text-top">{{userdata.vipName}}会员</view>
+          <view class="header-text-bottom">{{userdata.desc}}</view>
         </view>
       </view>
       <view class="index-header-right">
         <view class="header-right-coin">
-          <view class="header-right-coin-count">1000</view>
+          <view class="header-right-coin-count">{{userdata.coin}}</view>
           <view class="header-right-coin-text">雪王币</view>
         </view>
         <view class="header-right-discount">
-          <view class="header-right-discount-count">10</view>
+          <view class="header-right-discount-count">{{userdata.coupon}}</view>
           <view class="header-right-discount-text">优惠券</view>
         </view>
       </view>

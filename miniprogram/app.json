@@ -6,10 +6,18 @@
     "pages/takeorder/takeorder",
     "pages/userDetail/userDetail",
     "pages/storelist/storelist",
+
+
+    "pages/submitorder/submitorder",
+
     "pages/indexOtherPages/indexMyAddress/indexMyAddress",
     "pages/indexOtherPages/indexBuildAddress/indexBuildAddress",
     "pages/indexOtherPages/indexDetailPage/indexDetailPage",
     "pages/indexOtherPages/indexExchangePage/indexExchangePage",
+
+
+    "pages/takeordersearch/takeordersearch",
+
     "pages/userCoin/userCoin",
     "pages/userVip/userVip"
 
@@ -25,8 +33,7 @@
   "tabBar": {
     "color": "#a9b7b7",
     "selectedColor": "#e60011",
-    "list": [
-      {
+    "list": [{
         "selectedIconPath": "icons/icon_tab_home_select.png",
         "iconPath": "icons/icon_tab_home_unselect.png",
         "pagePath": "pages/index/index",

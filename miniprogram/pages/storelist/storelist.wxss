@@ -1,18 +1,144 @@
 /* pages/storelist/storelist.wxss */
-.store-list-page{
+
+
+.store-list-page {
   height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.stroe-list{
-  flex-grow: 1;
+.nav-arrow-box {
+  position: absolute;
+  left: 0;
 }
 
-.jump-btn{
-  width: 700rpx;
-  margin: 20rpx 25rpx;
-  height: 75rpx;
-  background-color: #e60011;
+.flod-btn {
+  display: flex;
+  background-color: #fff;
+  align-items: center;
+  justify-content: center;
+  padding: 10rpx 0;
+  color: #777;
 }
+
+
+.index-submit-navigation {
+  display: flex;
+  position: sticky;
+  top: 0;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 11vh;
+  background: #fff;
+  z-index: 3;
+}
+
+.index-submit-title {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 2vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42rpx;
+  height: 42rpx;
+  margin: 0rpx 20rpx;
+}
+
+
+
+.stroe-list {
+  padding-top: 40rpx;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.jump-btn {
+  padding: 20rpx;  
+}
+
+
+.store-item {
+  width: 630rpx;
+  padding: 30rpx;
+  display: flex;
+  font-size: 12px;
+  color: #666;
+  line-height: 1.8;
+  background-color: #fff;
+  border-radius: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.store-info {
+  width: 440rpx;
+  margin-right: 30rpx;
+  border-right: #ddd 1px solid;
+}
+
+.store-name {
+  font-size: 14px;
+  font-weight: bold;
+  color: #111;
+}
+
+.open-state {
+  display: inline-block;
+  color: #fff;
+  padding: 0 12rpx;
+  background-color: #e60012;
+}
+
+.close-state {
+  display: inline-block;
+  padding: 0 12rpx;
+  background-color: #eeeeee;
+}
+
+.store-item-right{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.method-icons{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 40rpx 0 0;
+}
+.method-icon{
+  width: 50rpx;
+  height: 50rpx;
+  margin: 0 10rpx;
+}
+
+.method-icon image{
+  width: 100%;
+  height: 100%;
+}
+
+.chose-store-info{
+  font-size: 12px;
+  padding: 10rpx 20rpx;
+  color: #666;
+
+}
+
+.chose-store-top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
