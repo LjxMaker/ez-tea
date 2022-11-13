@@ -1,10 +1,6 @@
 // pages/index/index.js
 const db = wx.cloud.database()
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     headerSwiperUrl: [
       "https://img-blog.csdnimg.cn/5589ae9720df44fda0967faaa288a553.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBALeW4jOWGgC0=,size_20,color_FFFFFF,t_70,g_se,x_16",

@@ -6,7 +6,6 @@ Component({
    * 组件的属性列表
    */
   behaviors: [computedBehavior],
-
   properties: {
     goods_data: {
       type: Object,

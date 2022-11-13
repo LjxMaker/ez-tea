@@ -1,6 +1,9 @@
 {
   "usingComponents": {
     "van-tab": "@vant/weapp/tab/index",
-    "van-tabs": "@vant/weapp/tabs/index"
+    "van-tabs": "@vant/weapp/tabs/index",
+    "ongoing-message":"../../components/ongoing-message/ongoing-message",
+    "history-record":"../../components/history-record/history-record",
+    "charge-back-list":"../../components/charge-back-list/charge-back-list"
   }
 }

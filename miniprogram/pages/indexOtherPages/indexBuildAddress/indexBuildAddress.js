@@ -231,7 +231,7 @@ Page({
   onShow() {
     const location = chooseLocation.getLocation();
     if(location){
-      console.log(location.address);
+      // console.log(location.address);
       this.setData({
         addressData:location.address,
         renderMessage: {

@@ -1,0 +1,45 @@
+<view class="history-record">
+  <view class="order-empty" hidden="{{HistoryRecord.length!=0}}">
+    <view class="order-img"></view>
+    <view class="order-text">您还没有订单, 快去选一杯喜欢的饮品吧</view>
+    <view class="order-button" bindtap="jumpCurrentPage">去喝一杯</view>
+  </view>
+  <view class="history-record-container" hidden="{{HistoryRecord.length==0}}">
+    <view class="history-record-list">
+      <view class="history-record-item" wx:for="{{HistoryRecord}}" wx:key="index">
+        <view class="record-item-header">
+          <view class="item-header-left">
+            <view class="l-store">{{item.storeAddress}}</view>
+            <view>
+              <van-icon name="arrow" />
+            </view>
+          </view>
+          <view class="item-header-right"></view>
+        </view>
+        <view class="record-item-tips">
+          <view>本店再集5杯得3元饮品券</view>
+          <view class="tips-txt">
+            <view class="m-i-t"></view>
+            <view class="m-i-t"></view>
+            <view class="m-i-t"></view>
+            <view class="m-i-t"></view>
+            <view class="m-i-t"></view>
+          </view>
+        </view>
+        <view class="record-item-goods">
+          <view class="item-goods-img" wx:for="{{item.shopCartData}}" wx:for-item="it" wx:for-index="i" wx:key="i">
+            <image class="auto-img" src="{{it.url}}">
+            </image>
+          </view>
+        </view>
+        <view class="record-item-footer">
+          <view class="item-footer-time">{{item.Ctime}}</view>
+          <view class="item-footer-pay">
+            <view class="footer-pay-number">共{{item.allQuantity}}件</view>
+            <view class="footer-pay-price">¥{{item.allNum}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

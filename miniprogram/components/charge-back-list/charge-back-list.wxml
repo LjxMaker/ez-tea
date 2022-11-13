@@ -1,0 +1,7 @@
+<view class="charge-back-list">
+  <view class="order-empty">
+    <view class="order-img"></view>
+    <view class="order-text">您还没有订单, 快去选一杯喜欢的饮品吧</view>
+    <view class="order-button" bindtap="jumpCurrentPage">去喝一杯</view>
+  </view>
+</view>

@@ -1,37 +1,18 @@
 <!--pages/order/order.wxml-->
-<view class="storelist-container">
-  <view class="storelist-main">
-    <van-tabs active="a" line-width="90rpx" line-height="6rpx"
-    color="#e4393c" title-active-color="black">
-      <van-tab title="进行中" name="a">
-        <view class="storelist-progress">
-          <view class="storelist-progress-content">
-            <view class="storelist-empty">
-              <view class="storelist-img"></view>
-              <view class="storelist-text">您还没有订单, 快去选一杯喜欢的饮品吧</view>
-              <view class="storelist-button">去喝一杯</view>
+<view class="order-container">
+  <view class="order-main">
+    <van-tabs active="ongoing" line-width="90rpx" line-height="6rpx" color="#e4393c" title-active-color="black" swipeable>
+      <van-tab title="{{item.text}}" name="{{item.type}}" wx:for="{{titleText}}" wx:key="index">
+        <view class="order-progress">
+          <view class="order-progress-content">
+            <view class="ongoing-page" hidden="{{item.type!='ongoing'}}">
+              <ongoing-message OngoingMessage="{{OngoingMessage}}" bind:switchOngoingPage="jumpCurrentPage"></ongoing-message>
             </view>
-          </view>
-        </view>
-      </van-tab>
-      <van-tab title="历史" name="b">
-        <view class="storelist-history">
-          <view class="storelist-history-content">
-            <view class="storelist-empty">
-              <view class="storelist-img"></view>
-              <view class="storelist-text">您还没有订单, 快去选一杯喜欢的饮品吧</view>
-              <view class="storelist-button">去喝一杯</view>
+            <view class="history-page" hidden="{{item.type!='history'}}">
+              <history-record HistoryRecord="{{HistoryRecord}}" bind:switchHistoryPage="jumpCurrentPage"></history-record>
             </view>
-          </view>
-        </view>
-      </van-tab>
-      <van-tab title="退单" name="c">
-        <view class="storelist-chargeback">
-          <view class="storelist-chargeback-content">
-            <view class="storelist-empty">
-              <view class="storelist-img"></view>
-              <view class="storelist-text">您还没有订单, 快去选一杯喜欢的饮品吧</view>
-              <view class="storelist-button">去喝一杯</view>
+            <view class="chargeback-page" hidden="{{item.type!='chargeback'}}">
+              <charge-back-list ChargeBackList="{{ChargeBackList}}" bind:switchChargePage="jumpCurrentPage"></charge-back-list>
             </view>
           </view>
         </view>

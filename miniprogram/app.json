@@ -2,22 +2,17 @@
   "pages": [
     "pages/index/index",
     "pages/order/order",
+    "pages/orderChildren/orderChildren",
     "pages/user/user",
     "pages/takeorder/takeorder",
     "pages/userDetail/userDetail",
     "pages/storelist/storelist",
-
-
     "pages/submitorder/submitorder",
-
     "pages/indexOtherPages/indexMyAddress/indexMyAddress",
     "pages/indexOtherPages/indexBuildAddress/indexBuildAddress",
     "pages/indexOtherPages/indexDetailPage/indexDetailPage",
     "pages/indexOtherPages/indexExchangePage/indexExchangePage",
-
-
     "pages/takeordersearch/takeordersearch",
-
     "pages/userCoin/userCoin",
     "pages/userVip/userVip"
 
