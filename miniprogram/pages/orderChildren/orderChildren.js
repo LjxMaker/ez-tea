@@ -1,4 +1,6 @@
 const db = wx.cloud.database();
+const _ = db.command
+
 Page({
 
   /**
@@ -114,6 +116,14 @@ Page({
     this.setData({
       cancel: true,
       showText: '已支付'
+    })
+    db.collection('userData').doc('a07d70686368f4960040c3ed33e2610d').update({
+      data: {
+        currentSweet: _.inc(this.data.renderData.allNum),
+      },
+      success: res => {
+        console.log(res)
+      }
     })
   },
   /**

@@ -63,13 +63,13 @@ Page({
               ChargeBackList: [...self.ChargeBackList, it]
             })
           }
+          this.setData({
+            HistoryRecord: [...self.HistoryRecord, {
+              ...it,
+              allNum
+            }]
+          })
         }
-        this.setData({
-          HistoryRecord: [...self.HistoryRecord, {
-            ...it,
-            allNum
-          }]
-        })
         // console.log(CurrentData)
       })
     }).catch(err => {
