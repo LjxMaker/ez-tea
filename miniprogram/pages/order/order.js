@@ -88,6 +88,10 @@ Page({
       let hours = date.getHours();
       let minute = date.getMinutes();
       let second = date.getSeconds();
+      month=month<10?'0'+month:month;
+      day=day<10?'0'+day:day;
+      hours=hours<10?'0'+hours:hours;
+      second=second<10?'0'+second:second;
       let time = year + '-' + month + '-' + day + ' ' + hours + ':' + minute + ':' + second;
       return time;
     }
