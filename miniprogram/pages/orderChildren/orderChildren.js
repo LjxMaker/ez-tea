@@ -20,13 +20,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.CountDownTime();
     let self = this;
     let IndexEventChannel = this.getOpenerEventChannel();
     IndexEventChannel.on('deliveryPageData', function (data) {
       console.log(data);
       let message = data.data;
-
       let shopcart = message.shopCartData;
       let arr = [];
       for (let i = 0; i < shopcart.length; i++) {
@@ -45,7 +43,7 @@ Page({
       arr.forEach(it => {
         currentNumber = currentNumber + it.quantity;
       });
-
+      
       self.setData({
         renderData: {
           ...message,
@@ -54,6 +52,42 @@ Page({
         }
       })
     })
+    let historyEventChannel = this.getOpenerEventChannel();
+    historyEventChannel.on('inspectPageData', function (data) {
+      console.log(data);
+      let message = data.data;
+      let shopcart = message.shopCartData;
+      let arr = [];
+      for (let i = 0; i < shopcart.length; i++) {
+        let finds = arr.findIndex(it => it.id == shopcart[i].id);
+        if (finds == -1) {
+          arr.push(shopcart[i]);
+        } else {
+          arr[finds] = {
+            ...arr[finds],
+            quantity: arr[finds].quantity + shopcart[i].quantity
+          }
+        }
+      }
+      // console.log('temper===',arr)
+      let currentNumber = 0;
+      arr.forEach(it => {
+        currentNumber = currentNumber + it.quantity;
+      });
+      
+      self.setData({
+        renderData: {
+          ...message,
+          shopCartData: [...arr],
+          currentNumber
+        }
+      })
+    })
+let testTitle=this.data.renderData.titleText;
+console.log(testTitle);
+if(testTitle=='ongoing'){
+  this.CountDownTime();
+}
   },
   jumpToTakeOrder() {
     wx.navigateTo({

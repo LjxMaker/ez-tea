@@ -67,7 +67,7 @@
  }
  .item-header-right{
    font-size:30rpx;
-   color:red;
+   color:#777;
  }
  .record-item-tips{
    display: flex;

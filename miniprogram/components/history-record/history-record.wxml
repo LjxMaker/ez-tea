@@ -6,7 +6,7 @@
   </view>
   <view class="history-record-container" hidden="{{HistoryRecord.length==0}}">
     <view class="history-record-list">
-      <view class="history-record-item" wx:for="{{HistoryRecord}}" wx:key="index">
+      <view class="history-record-item" wx:for="{{HistoryRecord}}" wx:key="index" bindtap="dealCurrentData" data-arr="{{item}}">
         <view class="record-item-header">
           <view class="item-header-left">
             <view class="l-store">{{item.storeAddress}}</view>
@@ -14,7 +14,7 @@
               <van-icon name="arrow" />
             </view>
           </view>
-          <view class="item-header-right"></view>
+          <view class="item-header-right">{{item.temperStatus=='competedPay'?'已完成':item.temperStatus=='cancelPay'?'已取消':'已退单'}}</view>
         </view>
         <view class="record-item-tips">
           <view>本店再集5杯得3元饮品券</view>

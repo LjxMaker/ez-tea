@@ -8,8 +8,8 @@
     <view class="order-children-background">
       <image class="auto-img" src="../../images/bg_order_rectangle.png"></image>
       <view class="children-header-title">
-        <view class="children-header-status">{{showText}}</view>
-        <view class="children-header-pay-time" hidden="{{cancel}}"><text>剩余支付时间 :</text>
+        <view class="children-header-status">{{renderData.titleText=='ongoing'?showText:renderData.titleText=='history'?(renderData.temperStatus=='competedPay'?'订单已完成':'订单已取消'):'已退单'}}</view>
+        <view class="children-header-pay-time" hidden="{{cancel||renderData.titleText!='ongoing'}}"><text>剩余支付时间 :</text>
           <text class="p-t">{{timeString}}</text>
         </view>
       </view>
@@ -34,14 +34,14 @@
           </view>
         </view>
       </view>
-      <view class="children-body-way">
+      <view class="children-body-way" hidden="{{renderData.titleText!='ongoing'}}">
         <view class="body-way-text">自提时间</view>
         <view class="body-select-way">{{renderData.getFoodTime}}</view>
       </view>
       <view class="children-body-main">
         <view class="body-main-item" wx:for="{{renderData.shopCartData}}" wx:key="index">
           <view class="body-main-img">
-          <image class="m-ig" src="{{item.url}}"></image>
+            <image class="m-ig" src="{{item.url}}"></image>
           </view>
           <view class="body-main-datail">
             <view class="main-datail-title">
@@ -61,7 +61,7 @@
       </view>
     </view>
   </view>
-  <view class="judge-button" hidden="{{cancel}}">
+  <view class="judge-button" hidden="{{cancel||renderData.titleText!='ongoing'}}">
     <view class="cancel-button" bindtap="cancelCurrentEvent">取消订单</view>
     <view class="confirm-button" bindtap="confirmCurrentEvent">确定支付</view>
   </view>

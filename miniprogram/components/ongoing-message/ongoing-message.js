@@ -19,7 +19,7 @@ Component({
         success:function(res){
           // console.log(e.currentTarget.dataset.arr);
           res.eventChannel.emit('deliveryPageData', {
-            data: e.currentTarget.dataset.arr
+            data: {...e.currentTarget.dataset.arr,titleText:'ongoing'}
           })
         }
       })
