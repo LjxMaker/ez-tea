@@ -14,7 +14,7 @@
               <van-icon name="arrow" />
             </view>
           </view>
-          <view class="item-header-right">待支付</view>
+          <view class="item-header-right">{{item.temperStatus=='manufacture'?'等待取餐':'待支付'}}</view>
         </view>
         <view class="message-item-tips">
           <view>本店再集5杯得3元饮品券</view>

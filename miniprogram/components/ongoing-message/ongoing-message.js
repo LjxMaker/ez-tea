@@ -17,9 +17,11 @@ Component({
       wx.navigateTo({
         url: '/pages/orderChildren/orderChildren',
         success:function(res){
-          // console.log(e.currentTarget.dataset.arr);
+          console.log(e.currentTarget.dataset.arr);
+          let a=e.currentTarget.dataset.arr
+          let b=a.temperStatus=='manufacture'?'manufacture':'ongoing'
           res.eventChannel.emit('deliveryPageData', {
-            data: {...e.currentTarget.dataset.arr,titleText:'ongoing'}
+            data: {...a,titleText:b}
           })
         }
       })
