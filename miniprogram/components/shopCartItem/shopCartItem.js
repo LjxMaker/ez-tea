@@ -31,7 +31,16 @@ Component({
 
     typeWords(data){
       if(data.goods_data.temp){
-        return  data.goods_data.temp[data.goods_data.tempType] + '/' + data.goods_data.sugar[data.goods_data.sugarType]
+        if (!data.goods_data.temp && !data.goods_data.sugar) {
+            return ''
+        }else if(data.goods_data.temp && !data.goods_data.sugar){
+          return data.goods_data.temp[data.goods_data.tempType]
+        }else if(!data.goods_data.temp && data.goods_data.sugar){
+          return data.goods_data.sugar[data.goods_data.sugarType]
+        }else{
+          return  data.goods_data.temp[data.goods_data.tempType] + '/' + data.goods_data.sugar[data.goods_data.sugarType]
+        }
+        return ''
 
       }else{
         return ''

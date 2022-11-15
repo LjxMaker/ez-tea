@@ -20,8 +20,10 @@ Page({
     timeArray: '',
     choseTime: '立刻取餐',
     index: 0,
-    shownote:false,
-    noteValue : ''
+    shownote: false,
+    noteValue: '',
+    allNum: 0,
+    allQuantity: 0,
   },
 
   computed: {
@@ -45,22 +47,21 @@ Page({
     },
   },
 
-  hideNote(){
+  hideNote() {
     this.setData({
-      shownote:false,
-      noteValue:''
+      shownote: false,
+      noteValue: ''
     })
   },
-  showNote(){
+  showNote() {
     this.setData({
-      shownote:true
+      shownote: true
     })
   },
 
-  submitnote(){
+  submitnote() {
     this.setData({
-      shownote:true,
-      noteValue:''
+      shownote: false,
     })
   },
 
@@ -79,7 +80,7 @@ Page({
     let datestr = ''
     let count = 0
     while (x) {
-      let strmin = String(min +100).slice(1,3)
+      let strmin = String(min + 100).slice(1, 3)
       datestr = hour + ':' + strmin
       min += 5
       this.setData({
@@ -113,36 +114,104 @@ Page({
   },
 
   payBtnEvent() {
-    db.collection('index_user_orders').add({
-      // name:'index_user_message',
-      data: {
-        shopCartData: this.data.shopCartData, //购物车
-        storeAddress: this.data.storeAddress, //商家地址
-        storeDetilAddress: this.data.storeDetilAddress, //商家详细地址
-        storeDistance: this.data.storeDistance, //店铺距离
-        orderState: "进行中",
-        orderId: this.data.orderId,
-        getFoodTime: this.data.choseTime,
-        noteValue:this.data.noteValue
-      },
-      success: () => {
-        wx.showToast({
-          title: '创建成功',
-        });
-        this.setData({
-          genderData: '先生',
-          judgeUserName: false,
-          judgeTelephone: false,
-          judgeAddress: false,
-          tipsText: '输入框不能为空!'
-        });
-        wx.navigateBack({
-          delta: 0,
-        })
-      }
+    let self = this
+    this.createrOrderId()
+    this.setData({
+      allNum: 0,
+      allQuantity: 0
+    })
+    this.data.shopCartData.forEach(ele => {
+      this.setData({
+        allNum: this.data.allNum + ele.price * ele.quantity
+      })
+    })
+    this.data.shopCartData.forEach(ele => {
+      this.setData({
+        allQuantity: this.data.allQuantity + ele.quantity
+      })
+    })
+    let orderdata = {
+      shopCartData: this.data.shopCartData, //购物车
+      storeAddress: this.data.storeAddress, //商家地址
+      storeDetilAddress: this.data.storeDetilAddress, //商家详细地址
+      storeDistance: this.data.storeDistance, //店铺距离
+      orderState: "进行中",
+      orderId: this.data.orderId,
+      getFoodTime: this.data.choseTime,
+      noteValue: this.data.noteValue,
+      allNum: this.data.allNum,
+      allQuantity: this.data.allQuantity
+    }
 
-    });
+    wx.showModal({
+      title: '支付出错',
+      content: '您是否确认支付？',
+      success(res) {
+        if (res.confirm) {
+          db.collection('index_user_orders').add({
+            // name:'index_user_message',
+            data: {
+              ...orderdata,
+              titleText: 'manufacture',
+              temperStatus: 'manufacture',
+            },
+            success: () => {
+              wx.navigateTo({
+                url: '/pages/orderChildren/orderChildren',
+                success: (res) => {
+                  console.log(self.data.shopCartData, 123567);
+
+                  res.eventChannel.emit('inspectPageData', {
+                    data: {
+                      ...orderdata,
+                      titleText: 'manufacture',
+                      temperStatus: 'manufacture',
+                    }
+                  })
+                }
+              })
+
+            }
+
+          });
+
+
+        } else if (res.cancel) {
+          db.collection('index_user_orders').add({
+            // name:'index_user_message',
+            data: {
+              ...orderdata,
+              titleText: 'ongoing',
+              temperStatus: '',
+            },
+            success: () => {
+              wx.navigateTo({
+                url: '/pages/orderChildren/orderChildren',
+                success: (res) => {
+                  console.log(self.data.shopCartData, 123567);
+
+                  res.eventChannel.emit('inspectPageData', {
+                    data: {
+                      ...orderdata,
+                      titleText: 'ongoing',
+                      temperStatus: '',
+                    }
+                  })
+                }
+              })
+
+            }
+
+          });
+
+        }
+      }
+    })
+
+
   },
+
+
 
   bindPickerChange: function (e) {
     this.setData({

@@ -10,9 +10,9 @@ Page({
     num: 60,
     count: 29,
     cancel: false,
-    curValue:false,
+    curValue: false,
     judgeStatus: true,
-    chargeStatus:true,
+    chargeStatus: true,
     timer: null,
     showText: '待支付'
   },
@@ -24,12 +24,11 @@ Page({
     let self = this;
     let IndexEventChannel = this.getOpenerEventChannel();
     IndexEventChannel.on('deliveryPageData', function (data) {
-      console.log(data);
       let message = data.data;
       let shopcart = message.shopCartData;
       let arr = [];
       for (let i = 0; i < shopcart.length; i++) {
-        let finds = arr.findIndex(it => it.id == shopcart[i].id);
+        let finds = arr.findIndex(it => it.cookId == shopcart[i].cookId);
         if (finds == -1) {
           arr.push(shopcart[i]);
         } else {
@@ -44,7 +43,6 @@ Page({
       arr.forEach(it => {
         currentNumber = currentNumber + it.quantity;
       });
-      
       self.setData({
         renderData: {
           ...message,
@@ -60,7 +58,7 @@ Page({
       let shopcart = message.shopCartData;
       let arr = [];
       for (let i = 0; i < shopcart.length; i++) {
-        let finds = arr.findIndex(it => it.id == shopcart[i].id);
+        let finds = arr.findIndex(it => it.cookId == shopcart[i].cookId);
         if (finds == -1) {
           arr.push(shopcart[i]);
         } else {
@@ -75,7 +73,6 @@ Page({
       arr.forEach(it => {
         currentNumber = currentNumber + it.quantity;
       });
-      
       self.setData({
         renderData: {
           ...message,
@@ -84,16 +81,16 @@ Page({
         }
       })
     })
-let testTitle=this.data.renderData.titleText;
-console.log(testTitle);
-if(testTitle=='ongoing'){
-  this.CountDownTime();
-}
-if(this.data.renderData.temperStatus=='manufacture'){
-  this.setData({
-    showText:'制作中...'
-  })
-}
+    let testTitle = this.data.renderData.titleText;
+    console.log(testTitle);
+    if (testTitle == 'ongoing') {
+      this.CountDownTime();
+    }
+    if (this.data.renderData.temperStatus == 'manufacture') {
+      this.setData({
+        showText: '制作中...'
+      })
+    }
   },
   jumpToTakeOrder() {
     wx.navigateTo({
@@ -132,7 +129,7 @@ if(this.data.renderData.temperStatus=='manufacture'){
     }, 1000);
   },
   cancelCurrentEvent() {
-    db.collection('index_user_orders').doc(`${this.data.renderData._id}`).update({
+    db.collection('index_user_orders').where({orderId:`${this.data.renderData.orderId}`}).update({
       data: {
         orderState: '历史',
         temperStatus: 'cancelPay'
@@ -146,7 +143,7 @@ if(this.data.renderData.temperStatus=='manufacture'){
   },
   confirmCurrentEvent() {
     // console.log('sald',this.data.renderData._id)
-    db.collection('index_user_orders').doc(`${this.data.renderData._id}`).update({
+    db.collection('index_user_orders').where({orderId:`${this.data.renderData.orderId}`}).update({
       data: {
         orderState: '制作中',
         temperStatus: 'manufacture',
@@ -155,8 +152,12 @@ if(this.data.renderData.temperStatus=='manufacture'){
     clearInterval(this.data.timer)
     this.setData({
       cancel: true,
-      chargeStatus:false,
+      chargeStatus: false,
       showText: '支付成功,等待制作中...',
+      renderData: {
+        ...this.data.renderData,
+        titleText: 'manufacture'
+      }
     })
 
 
@@ -169,24 +170,31 @@ if(this.data.renderData.temperStatus=='manufacture'){
       }
     })
   },
-  manufactureCurrentEvent(){
-    // console.log('tuidanzhong1...')
-    db.collection('index_user_orders').doc(`${this.data.renderData._id}`).update({
+  manufactureCurrentEvent() {
+    db.collection('index_user_orders').where({orderId:`${this.data.renderData.orderId}`}).update({
       data: {
         orderState: '退单',
         temperStatus: 'chargeBack'
+      },
+      success: function (res) {
+        console.log(res);
       }
-    });
+    })
     clearInterval(this.data.timer)
     this.setData({
       chargeStatus: true,
       showText: '退单成功',
-      curValue:true
+      curValue: true,
+      renderData: {
+        ...this.data.renderData,
+        temperStatus: 'chargeBack'
+      }
     })
   },
-  immediatelyTakeFood(){
-    if(this.data.renderData.titleText=='manufacture'){
-      db.collection('index_user_orders').doc(`${this.data.renderData._id}`).update({
+  immediatelyTakeFood() {
+    console.log(this.data.renderData.titleText);
+    if (this.data.renderData.titleText == 'manufacture') {
+      db.collection('index_user_orders').where({orderId:`${this.data.renderData.orderId}`}).update({
         data: {
           orderState: '历史',
           temperStatus: 'completedPay'
@@ -195,9 +203,9 @@ if(this.data.renderData.temperStatus=='manufacture'){
       clearInterval(this.data.timer)
       this.setData({
         showText: '已成功取餐',
-        curValue:true
+        curValue: true
       })
-    }else{
+    } else {
       wx.showToast({
         title: '没有取餐订单!',
       });

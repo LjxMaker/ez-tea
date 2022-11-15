@@ -14,7 +14,11 @@ Component({
     shopCartData: {
       type: Array,
       value: []
-    }
+    },
+    showStepper:{
+      type:Boolean,
+      value:true
+    },
 
   },
 

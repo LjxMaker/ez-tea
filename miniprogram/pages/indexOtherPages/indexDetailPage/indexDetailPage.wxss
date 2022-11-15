@@ -151,7 +151,7 @@
 
 .index-detail-read {
   box-sizing: border-box;
-  width:100%;
+  width:calc(100% - 40rpx);
   margin: 40rpx 40rpx 0rpx;
   font-size: 30rpx;
   height: 60rpx;

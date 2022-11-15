@@ -131,7 +131,6 @@
 
 .body-main-item{
   width: 100%;
-  display: flex;
   align-items: center;
   height:150rpx;
   margin: 10rpx 0rpx;
@@ -184,11 +183,11 @@
   height:80rpx;
 }
 .footer-allprice-number{
-  font-size:30rpx;
+  font-size:26rpx;
 }
 .footer-allprice-computed{
   margin:0rpx 5rpx;
-  font-size:33rpx;
+  font-size:32rpx;
   font-weight: bold;
 }
 .judge-button,.charge-back-button{

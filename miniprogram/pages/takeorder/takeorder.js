@@ -32,7 +32,10 @@ Page({
     storeDistance: '114m',
     storeBusinessHoursOpen: "0930",
     storeBusinessHoursClose: "2200",
-    
+    searchValue: '',
+    showSearchlayer: false,
+    allgoods:goodsData.allgoods,
+    searchresult:[]
   },
 
   computed: {
@@ -103,6 +106,28 @@ Page({
     });
   },
 
+  onChange(e) {
+    this.setData({
+      searchValue: e.detail,
+    });
+  },
+
+  onSearch() {
+    console.log(this.data.searchValue);
+    let reg = new RegExp(this.data.searchValue)
+
+    this.setData({
+      searchresult:this.data.allgoods.filter(ele=> reg.test(ele.name))
+    })
+  },
+
+
+  toggleSearchBox() {
+    this.setData({
+      showSearchlayer:!this.data.showSearchlayer
+    })
+  },
+
 
 
   //
@@ -134,7 +159,6 @@ Page({
     this.setData({
       shopCartData: this.data.shopCartData.map(ele => {
         if (ele.cookId === e.detail.cookId && ele.sugarType === e.detail.sugarType && ele.tempType === e.detail.tempType) {
-          console.log(123123);
           ele.quantity = ele.quantity + 1
         }
         return ele
@@ -280,7 +304,7 @@ Page({
       data
     }) => {
       //对发送过来的数据进行处理
-      console.log(data,312312839);
+      console.log(data, 312312839);
       this.setData({
         storeAddress: data.storeAddress,
         storeDetilAddress: data.storeDetilAddress,

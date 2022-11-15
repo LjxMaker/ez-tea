@@ -40,17 +40,7 @@
       </view>
       <view class="children-body-main">
         <view class="body-main-item" wx:for="{{renderData.shopCartData}}" wx:key="index">
-          <view class="body-main-img">
-            <image class="m-ig" src="{{item.url}}"></image>
-          </view>
-          <view class="body-main-datail">
-            <view class="main-datail-title">
-              <view class="datail-title-left">{{item.name}}</view>
-              <view class="datail-title-right">¥{{item.price}}</view>
-            </view>
-            <view class="main-datail-sugartype">{{item.sugar[item.sugarType]+','+item.temp[item.tempType]}}</view>
-            <view class="main-datail-count">x {{item.quantity}}</view>
-          </view>
+          <goods-item data-goodsData="{{item}}" goods_data="{{item}}" shopCartData="{{renderData.shopCartData}}" />
         </view>
       </view>
       <view class="children-body-footer">
@@ -66,7 +56,7 @@
     <view class="confirm-button" bindtap="confirmCurrentEvent">确定支付</view>
   </view>
   <view class="charge-back-button" hidden="{{chargeStatus&&renderData.temperStatus!='manufacture'&&titleText!='manufacture'||curValue}}">
-      <view class="back-btn" bindtap="manufactureCurrentEvent">退单</view>
+    <view class="back-btn" bindtap="manufactureCurrentEvent">退单</view>
   </view>
   <van-toast id="van-toast" />
 </view>

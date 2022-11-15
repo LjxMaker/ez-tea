@@ -9,7 +9,7 @@
 
       </view>
 
-      <view class='navInput'>
+      <view class='navInput' bindtap="toggleSearchBox">
         <view class="icon">
           <van-icon name="search" />
         </view>
@@ -34,17 +34,11 @@
     </view>
   </view>
 
-
-  <!-- 选择项目 -->
   <view class='cont-pro'>
-    <!-- 左侧列表 -->
     <view class='pro-left'>
       <view wx:for="{{serviceTypes.list}}" class='pro-title {{index==currentLeft?"  tabs-active":""}}' wx:key="index" bindtap='proItemTap' data-pos='{{index}}'>{{item}}</view>
     </view>
-    <!-- 右侧列表 -->
     <scroll-view class='pro-right' scroll-y scroll-with-animation="true" scroll-into-view="{{selectId}}" bindscroll="scrollEvent" scroll-top="{{scrollTop}}">
-      <!-- id要用来实现点击左侧右侧滚动至相应位置的效果；class（pro-box）要用来计算右侧对应左侧某一分类的高度 -->
-      <!-- id: item0, item1, item2... （注意：不能直接使用数字或汉字做id）-->
       <view class="swiper">
         <swiper>
           <swiper-item>
@@ -91,8 +85,8 @@
         </view>
       </view>
 
-      <scroll-view 	scroll-y="true" class="shopCart-list">
-        <view wx:for="{{shopCartData}}"  wx:for-item="ele" wx:for-index="i" wx:key="i">
+      <scroll-view scroll-y="true" class="shopCart-list">
+        <view wx:for="{{shopCartData}}" wx:for-item="ele" wx:for-index="i" wx:key="i">
           <shopCart-item bind:shopCartAddGood="shopCartAddGoodEvent" bind:shopCartCutGood="shopCartCutGoodEvent" data-goodsData="{{ele}}" goods_data="{{ele}}" shopCartData="{{shopCartData}}" />
         </view>
 
@@ -158,5 +152,30 @@
       </view>
     </view>
   </van-popup>
+
+
+  <view wx:if="{{showSearchlayer}}" class="search-layer">
+    <view class="search-box-mian">
+      <view class="index-search-navigation">
+        <view class="index-search-title">
+          <view bindtap="toggleSearchBox" style="margin: 0;" class="nav-arrow-box">
+            <van-icon style="color:#777" name="arrow-left" class="a-l" />
+          </view>
+          <view class="search-text">搜索</view>
+        </view>
+      </view>
+      <view class="search-bar" style="margin-top:1rpx;">
+        <van-search  value="{{ searchValue }}" placeholder="请输入搜索关键词" use-action-slot bind:change="onChange" bind:search="onSearch">
+          <view slot="action" bind:tap="onSearch">搜索</view>
+        </van-search>
+      </view>
+
+      <view class="search-list">
+        <view wx:for="{{searchresult}}" wx:for-item="ele" wx:for-index="i" wx:key="i">
+          <goods-item bind:addGood="addGoodEvent" bind:cutGood="cutGoodEvent" goods_data="{{ele}}" shopCartData="{{shopCartData}}" />
+        </view>
+      </view>
+    </view>
+  </view>
 
 </view>

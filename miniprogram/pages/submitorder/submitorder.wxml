@@ -97,7 +97,7 @@
         <text>备注</text>
       </view>
       <view style="color:#777" class="">
-        <text>暂不支持通过备注定制口味</text>
+        <text>{{noteValue||'暂不支持通过备注定制口味'}}</text>
         <van-icon style="color:#777" name="arrow" class="a-l" />
 
       </view>

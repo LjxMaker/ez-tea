@@ -17,7 +17,7 @@
         ￥{{goods_data.price}}
       </view>
 
-      <view class="stepper">
+      <view class="stepper" wx:if="showStepper">
         <view wx:if="{{num !== 0}}" bindtap="cutGood" class="cut-btn count-btn">
           <image src="../../icons/icon_number_minus_alive.png"></image>
         </view>
