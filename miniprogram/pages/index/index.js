@@ -40,31 +40,12 @@ Page({
         })
       }
     })
-<<<<<<< HEAD
-=======
   },
-  jumpUserPage() {
-    wx.switchTab({
-      url: "/pages/user/user"
-    })
-  },
-  jumpDetailPage(e) {
-    wx.navigateTo({
-      url: "/pages/indexOtherPages/indexDetailPage/indexDetailPage", 
-      success: function (res) {
-        // 通过 eventChannel 向被打开页面传送数据
-        res.eventChannel.emit('acceptOpenerPageData', {
-          data: e.target.dataset.text
-        })
-      }
-    })
-  },
-  jumpExchangePage(){
-    wx.navigateTo({
-      url: '/pages/indexOtherPages/indexExchangePage/indexExchangePage'
-    })
->>>>>>> coder
-  },
+    jumpTakeFoodsPage(){
+      wx.switchTab({
+        url: '/pages/storelist/storelist',
+      })
+    },
 
   /**
    * 生命周期函数--监听页面加载

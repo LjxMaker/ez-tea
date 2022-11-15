@@ -33,8 +33,8 @@
   <view class="index-body">
     <view class="index-body-type">
       <view class="index-body-item">
-        <view class="body-retrieval">
-          <view class="body-retrieval-title">自取</view>
+        <view class="body-retrieval" bindtap="jumpTakeFoodsPage">
+          <view class="body-retrieval-title" >自取</view>
           <view class="body-retrieval-text">下单免排队</view>
         </view>
         <navigator url="../indexOtherPages/indexMyAddress/indexMyAddress" hover-class="navigator-hover" class="body-food">
