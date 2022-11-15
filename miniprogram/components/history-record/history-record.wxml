@@ -14,7 +14,7 @@
               <van-icon name="arrow" />
             </view>
           </view>
-          <view class="item-header-right">{{item.temperStatus=='competedPay'?'已完成':item.temperStatus=='cancelPay'?'已取消':'已退单'}}</view>
+          <view class="item-header-right">{{item.temperStatus=='completedPay'?'已完成':item.temperStatus=='cancelPay'?'已取消':item.temperStatus=='manufacture'?'已完成':'已退单'}}</view>
         </view>
         <view class="record-item-tips">
           <view>本店再集5杯得3元饮品券</view>

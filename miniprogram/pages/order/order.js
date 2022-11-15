@@ -53,7 +53,7 @@ Page({
           Ctime,
           allQuantity
         }
-        if (it.orderState == '进行中') {
+        if (it.orderState == '进行中'||it.orderState=='制作中') {
           this.setData({
             OngoingMessage: [...self.OngoingMessage, it]
           })

@@ -191,7 +191,7 @@
   font-size:33rpx;
   font-weight: bold;
 }
-.judge-button{
+.judge-button,.charge-back-button{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -212,5 +212,16 @@
   padding:18rpx 183rpx;
   background:red;
   font-size:26rpx;
+  color:#fff;
+}
+.back-btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:calc(100% - 30rpx);
+  height:calc(100% - 30rpx);
+  background:red;
+  font-size:26rpx;
+  border-radius: 5rpx;
   color:#fff;
 }

@@ -1,6 +1,5 @@
 const db = wx.cloud.database();
 const _ = db.command
-
 Page({
 
   /**
@@ -11,7 +10,9 @@ Page({
     num: 60,
     count: 29,
     cancel: false,
+    curValue:false,
     judgeStatus: true,
+    chargeStatus:true,
     timer: null,
     showText: '待支付'
   },
@@ -88,6 +89,11 @@ console.log(testTitle);
 if(testTitle=='ongoing'){
   this.CountDownTime();
 }
+if(this.data.renderData.temperStatus=='manufacture'){
+  this.setData({
+    showText:'制作中...'
+  })
+}
   },
   jumpToTakeOrder() {
     wx.navigateTo({
@@ -139,18 +145,21 @@ if(testTitle=='ongoing'){
     })
   },
   confirmCurrentEvent() {
-    console.log('sald',this.data.renderData._id)
+    // console.log('sald',this.data.renderData._id)
     db.collection('index_user_orders').doc(`${this.data.renderData._id}`).update({
       data: {
-        orderState: '历史',
-        temperStatus: 'competedPay'
+        orderState: '制作中',
+        temperStatus: 'manufacture',
       }
     });
     clearInterval(this.data.timer)
     this.setData({
       cancel: true,
-      showText: '已支付'
+      chargeStatus:false,
+      showText: '支付成功,等待制作中...',
     })
+
+
     db.collection('userData').doc('a07d70686368f4960040c3ed33e2610d').update({
       data: {
         currentSweet: _.inc(this.data.renderData.allNum),
@@ -159,6 +168,40 @@ if(testTitle=='ongoing'){
         console.log(res)
       }
     })
+  },
+  manufactureCurrentEvent(){
+    // console.log('tuidanzhong1...')
+    db.collection('index_user_orders').doc(`${this.data.renderData._id}`).update({
+      data: {
+        orderState: '退单',
+        temperStatus: 'chargeBack'
+      }
+    });
+    clearInterval(this.data.timer)
+    this.setData({
+      chargeStatus: true,
+      showText: '退单成功',
+      curValue:true
+    })
+  },
+  immediatelyTakeFood(){
+    if(this.data.renderData.titleText=='manufacture'){
+      db.collection('index_user_orders').doc(`${this.data.renderData._id}`).update({
+        data: {
+          orderState: '历史',
+          temperStatus: 'completedPay'
+        }
+      });
+      clearInterval(this.data.timer)
+      this.setData({
+        showText: '已成功取餐',
+        curValue:true
+      })
+    }else{
+      wx.showToast({
+        title: '没有取餐订单!',
+      });
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
