@@ -129,7 +129,9 @@ Page({
     }, 1000);
   },
   cancelCurrentEvent() {
-    db.collection('index_user_orders').where({orderId:`${this.data.renderData.orderId}`}).update({
+    db.collection('index_user_orders').where({
+      orderId: `${this.data.renderData.orderId}`
+    }).update({
       data: {
         orderState: '历史',
         temperStatus: 'cancelPay'
@@ -143,7 +145,9 @@ Page({
   },
   confirmCurrentEvent() {
     // console.log('sald',this.data.renderData._id)
-    db.collection('index_user_orders').where({orderId:`${this.data.renderData.orderId}`}).update({
+    db.collection('index_user_orders').where({
+      orderId: `${this.data.renderData.orderId}`
+    }).update({
       data: {
         orderState: '制作中',
         temperStatus: 'manufacture',
@@ -159,19 +163,11 @@ Page({
         titleText: 'manufacture'
       }
     })
-
-
-    db.collection('userData').doc('a07d70686368f4960040c3ed33e2610d').update({
-      data: {
-        currentSweet: _.inc(this.data.renderData.allNum),
-      },
-      success: res => {
-        console.log(res)
-      }
-    })
   },
   manufactureCurrentEvent() {
-    db.collection('index_user_orders').where({orderId:`${this.data.renderData.orderId}`}).update({
+    db.collection('index_user_orders').where({
+      orderId: `${this.data.renderData.orderId}`
+    }).update({
       data: {
         orderState: '退单',
         temperStatus: 'chargeBack'
@@ -194,7 +190,9 @@ Page({
   immediatelyTakeFood() {
     console.log(this.data.renderData.titleText);
     if (this.data.renderData.titleText == 'manufacture') {
-      db.collection('index_user_orders').where({orderId:`${this.data.renderData.orderId}`}).update({
+      db.collection('index_user_orders').where({
+        orderId: `${this.data.renderData.orderId}`
+      }).update({
         data: {
           orderState: '历史',
           temperStatus: 'completedPay'
@@ -204,6 +202,14 @@ Page({
       this.setData({
         showText: '已成功取餐',
         curValue: true
+      })
+      db.collection('userData').doc('a07d70686368f4960040c3ed33e2610d').update({
+        data: {
+          currentSweet: _.inc(this.data.renderData.allNum),
+        },
+        success: res => {
+          console.log(res)
+        }
       })
     } else {
       wx.showToast({

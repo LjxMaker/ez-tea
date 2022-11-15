@@ -1,11 +1,5 @@
 {
   "usingComponents":{
-<<<<<<< HEAD
     "van-icon": "@vant/weapp/icon/index"
-=======
-    "van-icon": "@vant/weapp/icon/index",
-    "goods-item":"../../components/submitGoodsItem/submitGoodsItem"
-
->>>>>>> coder
   }
 }
