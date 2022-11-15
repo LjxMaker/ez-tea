@@ -41,18 +41,17 @@ Page({
       }
     })
   },
-    jumpTakeFoodsPage(){
-      wx.switchTab({
-        url: '/pages/storelist/storelist',
-      })
-    },
+
+  jumpTakeFoodsPage() {
+    wx.switchTab({
+      url: '/pages/storelist/storelist',
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-    this.getUserData()
-  },
+  onLoad(options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -65,7 +64,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    this.getUserData()
   },
 
   /**
